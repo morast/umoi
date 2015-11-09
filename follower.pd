@@ -1,0 +1,1218 @@
+#N canvas 867 172 919 578 10;
+#X declare -path samples;
+#N canvas 72 211 809 344 followerGUI 0;
+#N canvas 845 392 450 300 follower 0;
+#X obj 23 -16 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text -8 -19 BMP1;
+#X text -8 -4 BPM2;
+#X text -8 12 BPM3;
+#X obj 23 39 s follower1BPM;
+#X obj 65 85 s follow1del;
+#X obj 45 63 s \$0-follow1Voice;
+#X obj 82 112 s \$0-follow1Repeat;
+#X obj 85 22 hsl 50 15 0 1 0 0 empty empty Repeat -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 46 19 5 0 0 2 Delay - -;
+#X floatatom 45 -14 5 0 0 2 Sample - -;
+#X floatatom 86 -15 5 0 0 2 Pitch - -;
+#X obj 88 148 s \$0-follow1pitch;
+#X obj 172 -16 u_statesave follower1BPM follower;
+#X obj 172 6 u_statesave follower1Voice follower;
+#X obj 172 25 u_statesave follower1del follower;
+#X obj 172 44 u_statesave follower1repeat follower;
+#X obj 172 63 u_statesave follower1pitch follower;
+#X connect 0 0 4 0;
+#X connect 0 0 13 0;
+#X connect 8 0 7 0;
+#X connect 8 0 16 0;
+#X connect 9 0 5 0;
+#X connect 9 0 15 0;
+#X connect 10 0 6 0;
+#X connect 10 0 14 0;
+#X connect 11 0 12 0;
+#X connect 11 0 17 0;
+#X connect 13 0 0 0;
+#X connect 14 0 10 0;
+#X connect 15 0 9 0;
+#X connect 16 0 8 0;
+#X connect 17 0 11 0;
+#X coords 0 -1 1 1 150 71 2 -10 -30;
+#X restore 102 102 pd follower;
+#X obj 343 203 s \$0-crossNote1;
+#X floatatom 343 177 5 0 0 1 CrossNotze1 - -;
+#X obj 493 202 s \$0-crossNote2;
+#X floatatom 493 177 5 0 0 1 CrossNote2 - -;
+#X obj 102 175 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 224 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 241 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 122 230 549 540 preset 0;
+#X msg 195 307 set;
+#X obj 2 99 loadbang;
+#X obj 2 123 t b b;
+#X obj 81 206 t b b b;
+#X obj 81 55 inlet;
+#X obj 227 60 inlet;
+#X obj 2 56 inlet;
+#X obj 263 223 0;
+#X obj 21 331 f;
+#X obj 195 330 prepend;
+#X obj 3 274 r follower-toGlobal-presets;
+#X obj 3 607 s follower-fromGlobal-presets;
+#X obj 263 249 s follower-presetnumber;
+#X obj 21 304 r follower-loadpreset;
+#X obj -106 292 r follower-preset;
+#X obj 2 167 s follower-loadpreset;
+#X obj 81 246 s follower-savepreset;
+#X msg 3 415 follower3pitch 12 \, follower3repeat 0 \, follower3del
+4 \, follower3Voice 14 \, follower3BPM 0 \, follower2pitch 22 \, follower2repeat
+0 \, follower2del 2 \, follower2Voice 8 \, follower2BPM 0 \, crossNote2
+54 \, crossNote1 47 \, follower1pitch 30 \, follower1repeat 0 \, follower1del
+2 \, follower1Voice 19 \, follower1BPM 0 \,;
+#X obj 3 367 route 0 1 2 3 4 5 6 7;
+#X msg 33 411 follower3pitch 12 \, follower3repeat 0.918367 \, follower3del
+-2 \, follower3Voice 14 \, follower3BPM 2 \, follower2pitch 22 \, follower2repeat
+1 \, follower2del 4 \, follower2Voice 8 \, follower2BPM 0 \, follower1pitch
+-3 \, follower1repeat 0.571429 \, follower1del 10 \, follower1Voice
+5 \, follower1BPM 2 \,;
+#X msg 95 417;
+#X msg 128 417;
+#X msg 158 418;
+#X msg 189 418;
+#X msg 220 419;
+#X msg 68 654 crossNote2 54 \, crossNote1 47 \, follower3pitch 12 \,
+follower3repeat 0.918367 \, follower3del -2 \, follower3Voice 14 \,
+follower3BPM 2 \, follower2pitch 22 \, follower2repeat 1 \, follower2del
+4 \, follower2Voice 8 \, follower2BPM 0 \, follower1pitch -3 \, follower1repeat
+0.571429 \, follower1del 10 \, follower1Voice 5 \, follower1BPM 2 \,
+;
+#X obj 299 59 u_load follower;
+#X connect 0 0 9 0;
+#X connect 1 0 2 0;
+#X connect 2 0 15 0;
+#X connect 2 1 7 0;
+#X connect 3 0 16 0;
+#X connect 3 1 0 0;
+#X connect 3 2 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 7 1;
+#X connect 5 0 8 1;
+#X connect 5 0 9 1;
+#X connect 6 0 1 0;
+#X connect 7 0 12 0;
+#X connect 8 0 18 0;
+#X connect 9 0 18 0;
+#X connect 10 0 18 0;
+#X connect 13 0 8 0;
+#X connect 14 0 18 0;
+#X connect 17 0 11 0;
+#X connect 18 0 17 0;
+#X connect 18 1 25 0;
+#X connect 18 2 19 0;
+#X connect 18 3 20 0;
+#X connect 18 4 21 0;
+#X connect 18 5 22 0;
+#X connect 18 6 23 0;
+#X connect 18 7 24 0;
+#X connect 19 0 11 0;
+#X connect 20 0 11 0;
+#X connect 21 0 11 0;
+#X connect 22 0 11 0;
+#X connect 23 0 11 0;
+#X connect 24 0 11 0;
+#X connect 25 0 11 0;
+#X restore 106 243 pd preset;
+#X obj 343 225 u_statesave crossNote1 follower;
+#X obj 493 248 u_statesave crossNote2 follower;
+#N canvas 0 0 1110 1006 follower 0;
+#X floatatom 44 85 5 0 0 0 - - -;
+#X obj 44 112 sig~;
+#X msg 84 113 dry 1;
+#X obj 2 -69 r \$0-note;
+#N canvas 528 148 818 476 section1 0;
+#X obj 120 327 *~ 1;
+#X obj 119 295 s_simpler geschmack;
+#X obj 174 57 - 60;
+#X floatatom 195 147 5 0 0 0 - - -;
+#X obj 174 174 pack;
+#X msg 174 196 \$2 \$1;
+#X obj 174 218 route 0 1 2 3;
+#X obj 174 85 t f b;
+#X obj 146 269 t b f;
+#X obj 278 268 t b f;
+#X obj 404 269 t b f;
+#X obj 530 269 t b f;
+#X obj 250 331 *~ 1;
+#X obj 379 332 *~ 1;
+#X obj 499 337 *~ 1;
+#X obj 195 117 counter 0 3;
+#X obj 174 14 inlet;
+#X obj 119 384 outlet~;
+#X obj 249 294 s_simpler geschmack;
+#X obj 375 295 s_simpler geschmack;
+#X obj 501 295 s_simpler geschmack;
+#X obj 612 75 inlet;
+#X connect 0 0 17 0;
+#X connect 1 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 6 1 9 0;
+#X connect 6 2 10 0;
+#X connect 6 3 11 0;
+#X connect 7 0 4 0;
+#X connect 7 1 15 0;
+#X connect 8 0 1 0;
+#X connect 8 1 1 1;
+#X connect 9 0 18 0;
+#X connect 9 1 18 1;
+#X connect 10 0 19 0;
+#X connect 10 1 19 1;
+#X connect 11 0 20 0;
+#X connect 11 1 20 1;
+#X connect 12 0 17 0;
+#X connect 13 0 17 0;
+#X connect 14 0 17 0;
+#X connect 15 0 3 0;
+#X connect 16 0 2 0;
+#X connect 18 0 12 0;
+#X connect 19 0 13 0;
+#X connect 20 0 14 0;
+#X connect 21 0 1 2;
+#X connect 21 0 18 2;
+#X connect 21 0 19 2;
+#X connect 21 0 20 2;
+#X restore 2 60 pd section1;
+#X obj 2 -31 moses 53;
+#N canvas 528 148 818 476 section2 0;
+#X obj 120 327 *~ 1;
+#X obj 119 295 s_simpler geschmack;
+#X obj 174 57 - 60;
+#X floatatom 195 147 5 0 0 0 - - -;
+#X obj 174 174 pack;
+#X msg 174 196 \$2 \$1;
+#X obj 174 218 route 0 1 2 3;
+#X obj 174 85 t f b;
+#X obj 146 269 t b f;
+#X obj 278 268 t b f;
+#X obj 404 269 t b f;
+#X obj 530 269 t b f;
+#X obj 250 331 *~ 1;
+#X obj 379 332 *~ 1;
+#X obj 499 337 *~ 1;
+#X obj 195 117 counter 0 3;
+#X obj 174 14 inlet;
+#X obj 119 384 outlet~;
+#X obj 249 294 s_simpler geschmack;
+#X obj 375 295 s_simpler geschmack;
+#X obj 501 295 s_simpler geschmack;
+#X obj 612 75 inlet;
+#X connect 0 0 17 0;
+#X connect 1 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 6 1 9 0;
+#X connect 6 2 10 0;
+#X connect 6 3 11 0;
+#X connect 7 0 4 0;
+#X connect 7 1 15 0;
+#X connect 8 0 1 0;
+#X connect 8 1 1 1;
+#X connect 9 0 18 0;
+#X connect 9 1 18 1;
+#X connect 10 0 19 0;
+#X connect 10 1 19 1;
+#X connect 11 0 20 0;
+#X connect 11 1 20 1;
+#X connect 12 0 17 0;
+#X connect 13 0 17 0;
+#X connect 14 0 17 0;
+#X connect 15 0 3 0;
+#X connect 16 0 2 0;
+#X connect 18 0 12 0;
+#X connect 19 0 13 0;
+#X connect 20 0 14 0;
+#X connect 21 0 1 2;
+#X connect 21 0 18 2;
+#X connect 21 0 19 2;
+#X connect 21 0 20 2;
+#X restore 335 105 pd section2;
+#X floatatom 376 128 5 0 0 0 - - -;
+#X obj 376 155 sig~;
+#X floatatom 466 138 5 0 0 0 - - -;
+#X floatatom 421 126 5 0 0 0 - - -;
+#X msg 422 157 dry \$1;
+#X msg 466 158 feedback \$1;
+#X obj 377 177 lop~ 1;
+#X floatatom 768 106 5 0 0 0 - - -;
+#X obj 768 133 sig~;
+#X floatatom 852 106 5 0 0 0 - - -;
+#X floatatom 808 106 5 0 0 0 - - -;
+#X msg 808 134 dry \$1;
+#X msg 852 135 feedback \$1;
+#X obj 769 158 lop~ 1;
+#N canvas 528 148 818 476 section3 0;
+#X obj 120 327 *~ 1;
+#X obj 119 295 s_simpler geschmack;
+#X obj 174 57 - 60;
+#X floatatom 195 147 5 0 0 0 - - -;
+#X obj 174 174 pack;
+#X msg 174 196 \$2 \$1;
+#X obj 174 218 route 0 1 2 3;
+#X obj 174 85 t f b;
+#X obj 146 269 t b f;
+#X obj 278 268 t b f;
+#X obj 404 269 t b f;
+#X obj 530 269 t b f;
+#X obj 250 331 *~ 1;
+#X obj 379 332 *~ 1;
+#X obj 499 337 *~ 1;
+#X obj 195 117 counter 0 3;
+#X obj 174 14 inlet;
+#X obj 119 384 outlet~;
+#X obj 249 294 s_simpler geschmack;
+#X obj 375 295 s_simpler geschmack;
+#X obj 501 295 s_simpler geschmack;
+#X obj 612 75 inlet;
+#X connect 0 0 17 0;
+#X connect 1 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 6 1 9 0;
+#X connect 6 2 10 0;
+#X connect 6 3 11 0;
+#X connect 7 0 4 0;
+#X connect 7 1 15 0;
+#X connect 8 0 1 0;
+#X connect 8 1 1 1;
+#X connect 9 0 18 0;
+#X connect 9 1 18 1;
+#X connect 10 0 19 0;
+#X connect 10 1 19 1;
+#X connect 11 0 20 0;
+#X connect 11 1 20 1;
+#X connect 12 0 17 0;
+#X connect 13 0 17 0;
+#X connect 14 0 17 0;
+#X connect 15 0 3 0;
+#X connect 16 0 2 0;
+#X connect 18 0 12 0;
+#X connect 19 0 13 0;
+#X connect 20 0 14 0;
+#X connect 21 0 1 2;
+#X connect 21 0 18 2;
+#X connect 21 0 19 2;
+#X connect 21 0 20 2;
+#X restore 727 83 pd section3;
+#X obj 335 20 moses 64;
+#X obj 72 -48 r \$0-crossNote1;
+#X obj 404 3 r \$0-crossNote2;
+#X msg 128 113 feedback \$1;
+#X obj 224 92 r follower1BPM;
+#N canvas 96 281 450 300 BPM 0;
+#X msg 62 202 bpm \$1;
+#X obj 62 232 outlet;
+#X obj 1 -53 inlet;
+#X obj 113 -69 r BPM1;
+#X obj 62 61 f;
+#X obj 121 89 f;
+#X obj 185 105 f;
+#X obj 176 -7 r BPM2;
+#X obj 237 20 r BPM3;
+#X obj 62 86 spigot;
+#X obj 121 113 spigot;
+#X obj 180 131 spigot;
+#X obj 62 9 == 0;
+#X obj 121 39 == 1;
+#X obj 184 49 == 2;
+#X obj 62 32 t b f;
+#X obj 121 65 t b f;
+#X obj 186 83 t b f;
+#X connect 0 0 1 0;
+#X connect 2 0 12 0;
+#X connect 2 0 13 0;
+#X connect 2 0 14 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 15 0;
+#X connect 13 0 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 4 0;
+#X connect 15 1 9 1;
+#X connect 16 0 5 0;
+#X connect 16 1 10 1;
+#X connect 17 0 6 0;
+#X connect 17 1 11 1;
+#X restore 942 135 pd BPM;
+#X obj 942 111 r follower3BPM;
+#X obj 582 117 r follower2BPM;
+#X obj 466 117 r \$0-follow2Repeat;
+#X obj 96 67 r \$0-follow1Repeat;
+#X obj 101 15 r \$0-follow1Voice;
+#X obj 852 80 r \$0-follow3Repeat;
+#X obj 398 65 r \$0-follow2Voice;
+#X msg 198 192 deltime \$1;
+#X obj 198 166 r follow1del;
+#X msg 581 185 deltime \$1;
+#X obj 581 164 r follow2del;
+#X msg 942 176 deltime \$1;
+#X obj 942 155 r follow3del;
+#X msg 65 38 table\$1;
+#X msg 398 86 table\$1;
+#X msg 790 57 table\$1;
+#X obj 790 38 r \$0-follow3Voice;
+#X obj 335 71 +;
+#X obj 350 45 r \$0-follow2pitch;
+#X obj 2 30 +;
+#X obj 727 37 +;
+#X obj 742 0 r \$0-follow3pitch;
+#X obj 17 -7 r \$0-follow1pitch;
+#X obj 2 247 throw~ \$0-mainMono;
+#X obj 334 240 throw~ \$0-mainMono;
+#X obj 726 231 throw~ \$0-mainMono;
+#X obj 727 193 e_del followdelay3 glob;
+#X obj 334 201 e_del followdelay2 glob;
+#X obj 3 209 e_del followdelay1 glob;
+#N canvas 96 281 450 300 BPM 0;
+#X msg 62 202 bpm \$1;
+#X obj 62 232 outlet;
+#X obj 1 -53 inlet;
+#X obj 113 -69 r BPM1;
+#X obj 62 61 f;
+#X obj 121 89 f;
+#X obj 185 105 f;
+#X obj 176 -7 r BPM2;
+#X obj 237 20 r BPM3;
+#X obj 62 86 spigot;
+#X obj 121 113 spigot;
+#X obj 180 131 spigot;
+#X obj 62 9 == 0;
+#X obj 121 39 == 1;
+#X obj 184 49 == 2;
+#X obj 62 32 t b f;
+#X obj 121 65 t b f;
+#X obj 186 83 t b f;
+#X connect 0 0 1 0;
+#X connect 2 0 12 0;
+#X connect 2 0 13 0;
+#X connect 2 0 14 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 15 0;
+#X connect 13 0 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 4 0;
+#X connect 15 1 9 1;
+#X connect 16 0 5 0;
+#X connect 16 1 10 1;
+#X connect 17 0 6 0;
+#X connect 17 1 11 1;
+#X restore 581 140 pd BPM;
+#N canvas 96 281 450 300 BPM 0;
+#X msg 62 202 bpm \$1;
+#X obj 62 232 outlet;
+#X obj 1 -53 inlet;
+#X obj 113 -69 r BPM1;
+#X obj 62 61 f;
+#X obj 121 89 f;
+#X obj 185 105 f;
+#X obj 176 -7 r BPM2;
+#X obj 237 20 r BPM3;
+#X obj 62 86 spigot;
+#X obj 121 113 spigot;
+#X obj 180 131 spigot;
+#X obj 62 9 == 0;
+#X obj 121 39 == 1;
+#X obj 184 49 == 2;
+#X obj 62 32 t b f;
+#X obj 121 65 t b f;
+#X obj 186 83 t b f;
+#X connect 0 0 1 0;
+#X connect 2 0 12 0;
+#X connect 2 0 13 0;
+#X connect 2 0 14 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 15 0;
+#X connect 13 0 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 4 0;
+#X connect 15 1 9 1;
+#X connect 16 0 5 0;
+#X connect 16 1 10 1;
+#X connect 17 0 6 0;
+#X connect 17 1 11 1;
+#X restore 216 133 pd BPM;
+#X connect 0 0 1 0;
+#X connect 1 0 56 1;
+#X connect 2 0 56 2;
+#X connect 3 0 5 0;
+#X connect 4 0 56 0;
+#X connect 5 0 47 0;
+#X connect 5 1 22 0;
+#X connect 6 0 55 0;
+#X connect 7 0 8 0;
+#X connect 8 0 13 0;
+#X connect 9 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 55 2;
+#X connect 12 0 55 2;
+#X connect 13 0 55 1;
+#X connect 14 0 15 0;
+#X connect 15 0 20 0;
+#X connect 16 0 19 0;
+#X connect 17 0 18 0;
+#X connect 18 0 54 2;
+#X connect 19 0 54 2;
+#X connect 20 0 54 1;
+#X connect 21 0 54 0;
+#X connect 22 0 45 0;
+#X connect 22 1 48 0;
+#X connect 23 0 5 1;
+#X connect 24 0 22 1;
+#X connect 25 0 56 2;
+#X connect 26 0 58 0;
+#X connect 27 0 54 2;
+#X connect 28 0 27 0;
+#X connect 29 0 57 0;
+#X connect 30 0 9 0;
+#X connect 31 0 25 0;
+#X connect 32 0 41 0;
+#X connect 33 0 16 0;
+#X connect 34 0 42 0;
+#X connect 35 0 56 2;
+#X connect 36 0 35 0;
+#X connect 37 0 55 2;
+#X connect 38 0 37 0;
+#X connect 39 0 54 2;
+#X connect 40 0 39 0;
+#X connect 41 0 4 1;
+#X connect 42 0 6 1;
+#X connect 43 0 21 1;
+#X connect 44 0 43 0;
+#X connect 45 0 6 0;
+#X connect 46 0 45 1;
+#X connect 47 0 4 0;
+#X connect 48 0 21 0;
+#X connect 49 0 48 1;
+#X connect 50 0 47 1;
+#X connect 54 0 53 0;
+#X connect 55 0 52 0;
+#X connect 56 0 51 0;
+#X connect 57 0 55 2;
+#X connect 58 0 56 2;
+#X restore 604 100 pd follower;
+#X obj 159 201 u_statesave followerPreset glob;
+#N canvas 845 392 450 300 follower 0;
+#X obj 23 -16 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text -8 -19 BMP1;
+#X text -8 -4 BPM2;
+#X text -8 12 BPM3;
+#X obj 85 22 hsl 50 15 0 1 0 0 empty empty Repeat -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 46 19 5 0 0 2 Delay - -;
+#X floatatom 45 -14 5 0 0 2 Sample - -;
+#X floatatom 86 -15 5 0 0 2 Pitch - -;
+#X obj 45 63 s \$0-follow2Voice;
+#X obj 23 39 s follower2BPM;
+#X obj 65 85 s follow2del;
+#X obj 82 112 s \$0-follow2Repeat;
+#X obj 88 148 s \$0-follow2pitch;
+#X obj 172 -13 u_statesave follower2BPM follower;
+#X obj 172 6 u_statesave follower2Voice follower;
+#X obj 172 25 u_statesave follower2del follower;
+#X obj 172 44 u_statesave follower2repeat follower;
+#X obj 172 63 u_statesave follower2pitch follower;
+#X connect 0 0 9 0;
+#X connect 0 0 13 0;
+#X connect 4 0 11 0;
+#X connect 4 0 16 0;
+#X connect 5 0 10 0;
+#X connect 5 0 15 0;
+#X connect 6 0 8 0;
+#X connect 6 0 14 0;
+#X connect 7 0 12 0;
+#X connect 7 0 17 0;
+#X connect 13 0 0 0;
+#X connect 14 0 6 0;
+#X connect 15 0 5 0;
+#X connect 16 0 4 0;
+#X connect 17 0 7 0;
+#X coords 0 -1 1 1 150 71 2 -10 -30;
+#X restore 254 102 pd follower;
+#N canvas 845 392 450 300 follower 0;
+#X obj 23 -16 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text -8 -19 BMP1;
+#X text -8 -4 BPM2;
+#X text -8 12 BPM3;
+#X obj 85 22 hsl 50 15 0 1 0 0 empty empty Repeat -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 46 19 5 0 0 2 Delay - -;
+#X floatatom 45 -14 5 0 0 2 Sample - -;
+#X floatatom 86 -15 5 0 0 2 Pitch - -;
+#X obj 23 39 s follower3BPM;
+#X obj 45 63 s \$0-follow3Voice;
+#X obj 65 85 s follow3del;
+#X obj 82 112 s \$0-follow3Repeat;
+#X obj 88 148 s \$0-follow3pitch;
+#X obj 172 -13 u_statesave follower3BPM follower;
+#X obj 172 6 u_statesave follower3Voice follower;
+#X obj 172 25 u_statesave follower3del follower;
+#X obj 172 44 u_statesave follower3repeat follower;
+#X obj 172 63 u_statesave follower3pitch follower;
+#X connect 0 0 8 0;
+#X connect 0 0 13 0;
+#X connect 4 0 11 0;
+#X connect 4 0 16 0;
+#X connect 5 0 10 0;
+#X connect 5 0 15 0;
+#X connect 6 0 9 0;
+#X connect 6 0 14 0;
+#X connect 7 0 12 0;
+#X connect 7 0 17 0;
+#X connect 13 0 0 0;
+#X connect 14 0 6 0;
+#X connect 15 0 5 0;
+#X connect 16 0 4 0;
+#X connect 17 0 7 0;
+#X coords 0 -1 1 1 150 71 2 -10 -30;
+#X restore 406 102 pd follower;
+#X connect 2 0 1 0;
+#X connect 2 0 9 0;
+#X connect 4 0 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 8 2;
+#X connect 5 0 12 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 1;
+#X connect 9 0 2 0;
+#X connect 10 0 4 0;
+#X connect 12 0 5 0;
+#X coords 0 -1 1 1 500 94 2 100 100;
+#X restore -18 31 pd followerGUI;
+#N canvas 440 188 884 602 globalClock 0;
+#N canvas 988 94 208 187 milliseconds 0;
+#X obj 19 18 inlet;
+#X obj 19 199 outlet;
+#X obj 19 46 t b f;
+#X obj 19 170 /;
+#X msg 69 77 15000;
+#X msg 113 77 20000;
+#X obj 69 103 t b f;
+#X obj 69 43 sel 0 1;
+#X text 19 225 1/16 or 1/12 note;
+#X obj 69 17 r \$0-timesignature;
+#X floatatom 96 135 5 0 0 0 - - -;
+#X obj 19 147 f 3750;
+#X connect 0 0 2 0;
+#X connect 2 0 11 0;
+#X connect 2 1 3 1;
+#X connect 3 0 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 6 1 10 0;
+#X connect 6 1 11 1;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X connect 9 0 7 0;
+#X connect 11 0 3 0;
+#X restore 80 85 pd milliseconds;
+#X obj 18 131 metro;
+#X obj 18 107 != 0;
+#X obj 18 85 change;
+#X obj 18 169 1;
+#X obj 18 197 +;
+#X floatatom 91 115 5 0 0 0 - - -;
+#X floatatom 18 261 5 0 0 0 - - -;
+#X obj 211 336 % 8;
+#X obj 18 231 mod 64;
+#X obj 18 374 sel 0;
+#X obj 83 336 % 32;
+#X obj 150 336 % 16;
+#X obj 300 336 % 4;
+#X obj 83 374 sel 0;
+#X obj 150 374 sel 0;
+#X obj 211 374 sel 0;
+#X obj 300 374 sel 0;
+#X obj 18 415 s \$0-full1;
+#X obj 83 415 s \$0-half1;
+#X obj 150 415 s \$0-quater1;
+#X obj 228 415 s \$0-eight1;
+#X obj 300 416 s \$0-sixteenth1;
+#X obj 18 38 r BPM1;
+#N canvas 988 94 208 205 milliseconds 0;
+#X obj 19 18 inlet;
+#X obj 19 199 outlet;
+#X obj 19 46 t b f;
+#X obj 19 170 /;
+#X msg 69 77 15000;
+#X msg 113 77 20000;
+#X obj 69 103 t b f;
+#X obj 69 43 sel 0 1;
+#X text 19 225 1/16 or 1/12 note;
+#X obj 69 17 r \$0-timesignature;
+#X floatatom 96 135 5 0 0 0 - - -;
+#X obj 19 147 f 3750;
+#X connect 0 0 2 0;
+#X connect 2 0 11 0;
+#X connect 2 1 3 1;
+#X connect 3 0 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 6 1 10 0;
+#X connect 6 1 11 1;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X connect 9 0 7 0;
+#X connect 11 0 3 0;
+#X restore 465 85 pd milliseconds;
+#X obj 403 131 metro;
+#X obj 403 107 != 0;
+#X obj 403 85 change;
+#X obj 403 169 1;
+#X obj 403 197 +;
+#X floatatom 476 115 5 0 0 0 - - -;
+#X floatatom 403 261 5 0 0 0 - - -;
+#X obj 596 336 % 8;
+#X obj 403 231 mod 64;
+#X obj 403 374 sel 0;
+#X obj 468 336 % 32;
+#X obj 535 336 % 16;
+#X obj 685 336 % 4;
+#X obj 468 374 sel 0;
+#X obj 535 374 sel 0;
+#X obj 596 374 sel 0;
+#X obj 685 374 sel 0;
+#X obj 403 38 r BPM2;
+#X obj 403 415 s \$0-full2;
+#X obj 468 415 s \$0-half2;
+#X obj 613 415 s \$0-eight2;
+#X obj 685 416 s \$0-sixteenth2;
+#N canvas 988 94 208 205 milliseconds 0;
+#X obj 19 18 inlet;
+#X obj 19 199 outlet;
+#X obj 19 46 t b f;
+#X obj 19 170 /;
+#X msg 69 77 15000;
+#X msg 113 77 20000;
+#X obj 69 103 t b f;
+#X obj 69 43 sel 0 1;
+#X text 19 225 1/16 or 1/12 note;
+#X obj 69 17 r \$0-timesignature;
+#X floatatom 96 135 5 0 0 0 - - -;
+#X obj 19 147 f 3750;
+#X connect 0 0 2 0;
+#X connect 2 0 11 0;
+#X connect 2 1 3 1;
+#X connect 3 0 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 6 1 10 0;
+#X connect 6 1 11 1;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X connect 9 0 7 0;
+#X connect 11 0 3 0;
+#X restore 846 85 pd milliseconds;
+#X obj 784 131 metro;
+#X obj 784 107 != 0;
+#X obj 784 85 change;
+#X obj 784 169 1;
+#X obj 784 197 +;
+#X floatatom 857 115 5 0 0 0 - - -;
+#X floatatom 784 261 5 0 0 0 - - -;
+#X obj 977 336 % 8;
+#X obj 784 231 mod 64;
+#X obj 784 374 sel 0;
+#X obj 849 336 % 32;
+#X obj 916 336 % 16;
+#X obj 1066 336 % 4;
+#X obj 849 374 sel 0;
+#X obj 916 374 sel 0;
+#X obj 977 374 sel 0;
+#X obj 1066 374 sel 0;
+#X obj 784 38 r BPM3;
+#X obj 784 415 s \$0-full3;
+#X obj 849 415 s \$0-half3;
+#X obj 916 415 s \$0-quater3;
+#X obj 995 415 s \$0-eight3;
+#X obj 1069 415 s \$0-sixteenth3;
+#X obj 535 415 s \$0-quater2;
+#X msg 499 180 0;
+#X msg 1004 152 0;
+#X obj 1004 131 r \$0-resetClock3;
+#X obj 499 159 r \$0-resetClock2;
+#X msg 144 180 0;
+#X obj 144 160 r \$0-resetClock1;
+#X obj 135 44 value BPM1;
+#X obj 236 55 u_statesave BPM1 glob;
+#X obj 485 37 u_statesave BPM2 glob;
+#X obj 846 35 u_statesave BPM3 glob;
+#X obj 236 77 s inBPM1;
+#X obj 621 89 s inBPM2;
+#X obj 953 70 s inBPM3;
+#X obj 135 19 t b f;
+#X obj 687 55 t b f;
+#X obj 1022 50 t b f;
+#X obj 1022 75 value BPM3;
+#X obj 687 79 value BPM2;
+#X connect 0 0 1 1;
+#X connect 0 0 6 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 7 0 10 0;
+#X connect 7 0 11 0;
+#X connect 7 0 12 0;
+#X connect 7 0 8 0;
+#X connect 7 0 13 0;
+#X connect 8 0 16 0;
+#X connect 9 0 5 1;
+#X connect 9 0 7 0;
+#X connect 10 0 18 0;
+#X connect 11 0 14 0;
+#X connect 12 0 15 0;
+#X connect 13 0 17 0;
+#X connect 14 0 19 0;
+#X connect 15 0 20 0;
+#X connect 16 0 21 0;
+#X connect 17 0 22 0;
+#X connect 23 0 0 0;
+#X connect 23 0 3 0;
+#X connect 23 0 79 0;
+#X connect 23 0 85 0;
+#X connect 24 0 25 1;
+#X connect 24 0 30 0;
+#X connect 25 0 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;
+#X connect 29 0 33 0;
+#X connect 31 0 34 0;
+#X connect 31 0 35 0;
+#X connect 31 0 36 0;
+#X connect 31 0 32 0;
+#X connect 31 0 37 0;
+#X connect 32 0 40 0;
+#X connect 33 0 29 1;
+#X connect 33 0 31 0;
+#X connect 34 0 43 0;
+#X connect 35 0 38 0;
+#X connect 36 0 39 0;
+#X connect 37 0 41 0;
+#X connect 38 0 44 0;
+#X connect 39 0 71 0;
+#X connect 40 0 45 0;
+#X connect 41 0 46 0;
+#X connect 42 0 24 0;
+#X connect 42 0 27 0;
+#X connect 42 0 80 0;
+#X connect 42 0 86 0;
+#X connect 47 0 48 1;
+#X connect 47 0 53 0;
+#X connect 48 0 51 0;
+#X connect 49 0 48 0;
+#X connect 50 0 49 0;
+#X connect 51 0 52 0;
+#X connect 52 0 56 0;
+#X connect 54 0 57 0;
+#X connect 54 0 58 0;
+#X connect 54 0 59 0;
+#X connect 54 0 55 0;
+#X connect 54 0 60 0;
+#X connect 55 0 63 0;
+#X connect 56 0 52 1;
+#X connect 56 0 54 0;
+#X connect 57 0 66 0;
+#X connect 58 0 61 0;
+#X connect 59 0 62 0;
+#X connect 60 0 64 0;
+#X connect 61 0 67 0;
+#X connect 62 0 68 0;
+#X connect 63 0 69 0;
+#X connect 64 0 70 0;
+#X connect 65 0 47 0;
+#X connect 65 0 50 0;
+#X connect 65 0 81 0;
+#X connect 65 0 87 0;
+#X connect 72 0 29 1;
+#X connect 73 0 51 1;
+#X connect 74 0 73 0;
+#X connect 75 0 72 0;
+#X connect 76 0 5 1;
+#X connect 77 0 76 0;
+#X connect 79 0 82 0;
+#X connect 80 0 27 0;
+#X connect 80 0 83 0;
+#X connect 81 0 50 0;
+#X connect 81 0 84 0;
+#X connect 85 0 78 0;
+#X connect 85 1 78 0;
+#X connect 86 0 89 0;
+#X connect 86 1 89 0;
+#X connect 87 0 88 0;
+#X connect 87 1 88 0;
+#X restore -20 127 pd globalClock;
+#X floatatom -17 9 5 0 0 0 - inBPM1 BPM1;
+#X floatatom 20 10 5 0 0 0 - inBPM2 BPM2;
+#X floatatom 55 10 5 0 0 0 - inBPM3 BPM3;
+#X text -19 -9 BPM1;
+#X text 18 -9 BPM2;
+#X text 53 -8 BPM3;
+#N canvas 253 260 450 300 soundtables 0;
+#N canvas 1175 260 596 434 load 0;
+#X obj -23 288 soundfiler;
+#X obj -23 131 textfile;
+#X msg -7 104 rewind;
+#X msg -23 37 read samples.txt cr;
+#X obj 130 148 until;
+#X obj 130 59 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 130 87 t b b;
+#X obj 133 183 f;
+#X obj 167 184 + 1;
+#X msg 157 112 0;
+#X obj -23 221 pack s f;
+#X msg -23 245 read -resize \$1 table\$2;
+#X text 104 36 Read All Samples Named in the samples.txt file;
+#X obj -23 -6 loadbang;
+#X obj -23 309 /;
+#X obj 136 264 samplerate~;
+#X obj 136 292 * 0.001;
+#X text 313 374 Length;
+#X obj 322 238 table \$0-sampleLengths;
+#X obj -23 330 tabwrite \$0-sampleLengths;
+#X obj -23 14 t b b;
+#X connect 0 0 14 0;
+#X connect 1 0 10 0;
+#X connect 1 1 4 1;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 6 1 2 0;
+#X connect 6 1 9 0;
+#X connect 7 0 8 0;
+#X connect 7 0 10 1;
+#X connect 7 0 19 1;
+#X connect 8 0 7 1;
+#X connect 9 0 7 1;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 13 0 15 0;
+#X connect 13 0 20 0;
+#X connect 14 0 19 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 1;
+#X connect 20 0 5 0;
+#X connect 20 1 3 0;
+#X restore 53 17 pd load;
+#X obj 131 36 table table1;
+#X obj 131 55 table table2;
+#X obj 131 74 table table3;
+#X obj 131 93 table table4;
+#X obj 131 112 table table5;
+#X obj 131 131 table table6;
+#X obj 131 150 table table7;
+#X obj 131 169 table table8;
+#X obj 131 188 table table9;
+#X obj 131 17 table table0;
+#X obj 214 17 table table10;
+#X obj 214 36 table table11;
+#X obj 214 55 table table12;
+#X obj 214 74 table table13;
+#X obj 214 93 table table14;
+#X obj 214 112 table table15;
+#X obj 214 131 table table16;
+#X obj 214 150 table table17;
+#X obj 214 169 table table18;
+#X obj 214 188 table table19;
+#X obj 302 18 table table20;
+#X obj 301 37 table table21;
+#X obj 302 56 table table22;
+#X obj 302 75 table table23;
+#X obj 302 94 table table24;
+#X obj 302 113 table table25;
+#X obj 302 132 table table26;
+#X obj 302 151 table table27;
+#X obj 302 170 table table28;
+#X obj 302 189 table table29;
+#X restore -20 146 pd soundtables;
+#N canvas 189 111 952 1006 inputAnalyzer 0;
+#X msg 102 78 stabletime \$1;
+#X floatatom 102 57 5 0 0 0 - - -;
+#X msg 66 101 minpower \$1;
+#X floatatom 66 76 5 0 0 0 - - -;
+#X floatatom 159 189 5 0 0 0 - - -;
+#X obj 133 236 spigot;
+#X obj 54 164 sigmund~ env notes;
+#X obj 54 204 > 30;
+#X obj 54 255 s \$0-noteOn;
+#X obj 133 256 s \$0-note;
+#X obj 23 274 s \$0-env;
+#X floatatom 155 106 5 0 0 0 - - -;
+#X obj 54 34 receive~ input;
+#X obj 256 108;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 6 0 10 0;
+#X connect 6 1 4 0;
+#X connect 7 0 5 1;
+#X connect 7 0 8 0;
+#X connect 11 0 7 1;
+#X connect 12 0 6 0;
+#X restore -20 166 pd inputAnalyzer;
+#X obj 173 142 adc~ 1;
+#X obj 164 415 dac~ 1 2;
+#X obj 232 143 catch~ \$0-mainMono;
+#X text 118 141 Input->;
+#X text 349 143 <-delayed Samples;
+#X obj -20 185 declare -path samples;
+#X obj 324 195 nbx 2 50 -1e+037 1e+037 0 0 empty \$0-note empty 0 -8
+0 40 -262144 -1 -1 60.2935 256;
+#X text 305 177 Current Pitch as MidiNote;
+#X obj 100 258 send~ input;
+#X obj 173 173 c_stchannel input glob;
+#X obj 548 219 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 590 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 634 210 5 0 0 0 - - -;
+#N canvas 127 13 952 1006 preset 0;
+#X msg 321 -36 set;
+#X obj 128 -244 loadbang;
+#X obj 128 -220 t b b;
+#X obj 207 -137 t b b b;
+#X obj 207 -288 inlet;
+#X obj 353 -283 inlet;
+#X obj 128 -287 inlet;
+#X obj 389 -120 0;
+#X obj 207 -12 f;
+#X obj 130 91 route 0 1 2 3 4 5 6 7;
+#X msg 188 220;
+#X msg 204 189;
+#X msg 231 219;
+#X msg 245 188;
+#X msg 221 249;
+#X msg 294 185;
+#X floatatom 224 22 5 0 0 0 - - -;
+#X msg 328 114 followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry
+1 \, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry 1
+\, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \,
+followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay3-dry
+1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1
+\, followdelay3-dry 1 \, followdelay3-dry 1 \, samples-pan 0 \, samples-pan
+0 \, samples-pan 0 \, samples-pan 0 \, samples-pan 0 \, samples-pan
+0 \, samples-vol 100 \, samples-vol 100 \, samples-vol 100 \, samples-vol
+100 \, samples-vol 100 \, samples-vol 100 \, samples-mute 0 \, samples-mute
+0 \, samples-mute 0 \, samples-mute 0 \, samples-mute 0 \, samples-mute
+0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan
+0 \, input-pan 0 \, input-vol 100 \, input-vol 100 \, input-vol 100
+\, input-vol 100 \, input-vol 100 \, input-vol 100 \, input-mute 0
+\, input-mute 0 \, input-mute 0 \, input-mute 0 \, input-mute 0 \,
+input-mute 0 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27
+\, BPM3 27 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2
+108 \, BPM2 108 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \,
+BPM1 130 \, BPM1 130 \, followerPreset 0 \, followerPreset 0 \, followerPreset
+0 \, followerPreset 0 \, followerPreset 0 \, followerPreset 0 \, followdelay1-dry
+1 \, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry 1
+\, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay2-dry 1 \,
+followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry
+1 \, followdelay2-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1
+\, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1 \,
+followdelay3-dry 1 \, samples-pan 0 \, samples-pan 0 \, samples-pan
+0 \, samples-pan 0 \, samples-pan 0 \, samples-pan 0 \, samples-vol
+100 \, samples-vol 100 \, samples-vol 100 \, samples-vol 100 \, samples-vol
+100 \, samples-vol 100 \, samples-mute 0 \, samples-mute 0 \, samples-mute
+0 \, samples-mute 0 \, samples-mute 0 \, samples-mute 0 \, input-pan
+0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan
+0 \, input-vol 100 \, input-vol 100 \, input-vol 100 \, input-vol 100
+\, input-vol 100 \, input-vol 100 \, input-mute 0 \, input-mute 0 \,
+input-mute 0 \, input-mute 0 \, input-mute 0 \, input-mute 0 \, BPM3
+27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM2 108
+\, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM1
+130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \,
+followerPreset 0 \, followerPreset 0 \, followerPreset 0 \, followerPreset
+0 \, followerPreset 0 \, followerPreset 0 \, followdelay1-dry 1 \,
+followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry
+1 \, followdelay1-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1
+\, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \,
+followdelay2-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry
+1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1
+\, samples-pan 0 \, samples-pan 0 \, samples-pan 0 \, samples-pan 0
+\, samples-pan 0 \, samples-pan 0 \, samples-vol 100 \, samples-vol
+100 \, samples-vol 100 \, samples-vol 100 \, samples-vol 100 \, samples-vol
+100 \, samples-mute 0 \, samples-mute 0 \, samples-mute 0 \, samples-mute
+0 \, samples-mute 0 \, samples-mute 0 \, input-pan 0 \, input-pan 0
+\, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-vol
+100 \, input-vol 100 \, input-vol 100 \, input-vol 100 \, input-vol
+100 \, input-vol 100 \, input-mute 0 \, input-mute 0 \, input-mute
+0 \, input-mute 0 \, input-mute 0 \, input-mute 0 \, BPM3 27 \, BPM3
+27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM2 108 \, BPM2
+108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM1 130 \,
+BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, followerPreset
+0 \, followerPreset 0 \, followerPreset 0 \, followerPreset 0 \, followerPreset
+0 \, followerPreset 0 \, followdelay1-dry 1 \, followdelay1-dry 1 \,
+followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry
+1 \, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1
+\, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \,
+followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry
+1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, samples-pan 0 \, samples-pan
+0 \, samples-pan 0 \, samples-pan 0 \, samples-pan 0 \, samples-pan
+0 \, samples-vol 100 \, samples-vol 100 \, samples-vol 100 \, samples-vol
+100 \, samples-vol 100 \, samples-vol 100 \, samples-mute 0 \, samples-mute
+0 \, samples-mute 0 \, samples-mute 0 \, samples-mute 0 \, samples-mute
+0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan
+0 \, input-pan 0 \, input-vol 100 \, input-vol 100 \, input-vol 100
+\, input-vol 100 \, input-vol 100 \, input-vol 100 \, input-mute 0
+\, input-mute 0 \, input-mute 0 \, input-mute 0 \, input-mute 0 \,
+input-mute 0 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27
+\, BPM3 27 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2
+108 \, BPM2 108 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \,
+BPM1 130 \, BPM1 130 \, followerPreset 0 \, followerPreset 0 \, followerPreset
+0 \, followerPreset 0 \, followerPreset 0 \, followerPreset 0 \, followdelay1-dry
+1 \, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry 1
+\, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay2-dry 1 \,
+followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry
+1 \, followdelay2-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1
+\, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1 \,
+followdelay3-dry 1 \, samples-pan 0 \, samples-pan 0 \, samples-pan
+0 \, samples-pan 0 \, samples-pan 0 \, samples-pan 0 \, samples-vol
+100 \, samples-vol 100 \, samples-vol 100 \, samples-vol 100 \, samples-vol
+100 \, samples-vol 100 \, samples-mute 0 \, samples-mute 0 \, samples-mute
+0 \, samples-mute 0 \, samples-mute 0 \, samples-mute 0 \, input-pan
+0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan
+0 \, input-vol 100 \, input-vol 100 \, input-vol 100 \, input-vol 100
+\, input-vol 100 \, input-vol 100 \, input-mute 0 \, input-mute 0 \,
+input-mute 0 \, input-mute 0 \, input-mute 0 \, input-mute 0 \, BPM3
+27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM2 108
+\, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM1
+130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \,
+followerPreset 0 \, followerPreset 0 \, followerPreset 0 \, followerPreset
+0 \, followerPreset 0 \, followerPreset 0 \, followdelay1-dry 1 \,
+followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry 1 \, followdelay1-dry
+1 \, followdelay1-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1
+\, followdelay2-dry 1 \, followdelay2-dry 1 \, followdelay2-dry 1 \,
+followdelay2-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry
+1 \, followdelay3-dry 1 \, followdelay3-dry 1 \, followdelay3-dry 1
+\, samples-pan 0 \, samples-pan 0 \, samples-pan 0 \, samples-pan 0
+\, samples-pan 0 \, samples-pan 0 \, samples-vol 100 \, samples-vol
+100 \, samples-vol 100 \, samples-vol 100 \, samples-vol 100 \, samples-vol
+100 \, samples-mute 0 \, samples-mute 0 \, samples-mute 0 \, samples-mute
+0 \, samples-mute 0 \, samples-mute 0 \, input-pan 0 \, input-pan 0
+\, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-pan 0 \, input-vol
+100 \, input-vol 100 \, input-vol 100 \, input-vol 100 \, input-vol
+100 \, input-vol 100 \, input-mute 0 \, input-mute 0 \, input-mute
+0 \, input-mute 0 \, input-mute 0 \, input-mute 0 \, BPM3 27 \, BPM3
+27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM3 27 \, BPM2 108 \, BPM2
+108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM2 108 \, BPM1 130 \,
+BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, BPM1 130 \, followerPreset
+0 \, followerPreset 0 \, followerPreset 0 \, followerPreset 0 \, followerPreset
+0 \, followerPreset 0 \,;
+#X msg 101 289;
+#X obj 130 474 s glob-fromGlobal-presets;
+#X obj 20 -51 r glob-preset;
+#X obj 130 -69 r glob-toGlobal-presets;
+#X obj 208 -39 r glob-loadpreset;
+#X obj 389 -94 s glob-presetnumber;
+#X obj 510 -94 u_load glob;
+#X obj 207 -97 s glob-savepreset;
+#X obj 128 -176 s glob-loadpreset;
+#X msg 321 12 \$2 \$1;
+#X obj 321 -11 pack s f;
+#X connect 0 0 28 0;
+#X connect 1 0 2 0;
+#X connect 2 0 26 0;
+#X connect 2 1 7 0;
+#X connect 3 0 25 0;
+#X connect 3 1 0 0;
+#X connect 3 2 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 7 1;
+#X connect 5 0 8 1;
+#X connect 5 0 28 1;
+#X connect 6 0 1 0;
+#X connect 7 0 23 0;
+#X connect 8 0 9 0;
+#X connect 8 0 16 0;
+#X connect 9 0 17 0;
+#X connect 9 1 18 0;
+#X connect 9 2 10 0;
+#X connect 9 3 11 0;
+#X connect 9 4 12 0;
+#X connect 9 5 13 0;
+#X connect 9 6 14 0;
+#X connect 9 7 15 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 19 0;
+#X connect 15 0 19 0;
+#X connect 17 0 19 0;
+#X connect 18 0 19 0;
+#X connect 20 0 9 0;
+#X connect 21 0 9 0;
+#X connect 22 0 8 0;
+#X connect 27 0 9 0;
+#X connect 28 0 27 0;
+#X restore 559 319 pd preset;
+#X obj 233 171 c_stchannel samples glob;
+#X connect 10 0 18 0;
+#X connect 10 0 19 0;
+#X connect 10 0 19 1;
+#X connect 12 0 24 0;
+#X connect 12 0 24 1;
+#X connect 19 0 11 0;
+#X connect 19 1 11 1;
+#X connect 20 0 23 0;
+#X connect 21 0 23 1;
+#X connect 22 0 23 2;
+#X connect 24 0 11 0;
+#X connect 24 1 11 1;
