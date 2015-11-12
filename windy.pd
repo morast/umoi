@@ -1,0 +1,222 @@
+#N canvas 65 82 650 686 10;
+#X obj 113 527 dac~;
+#X obj 159 177 bng 15 250 50 0 empty empty Load_a_SoundFile_First 17
+7 0 10 -262144 -1 -1;
+#X obj 126 86 sig~;
+#X msg 378 236 midipitch \$1;
+#X obj 113 494 *~;
+#X obj 181 491 *~;
+#X floatatom 196 371 5 0 0 0 - - -;
+#X msg 468 236 amp \$1;
+#X msg 468 283 pan \$1;
+#X msg 947 208 posrnd \$1;
+#X msg 515 237 hanning;
+#X msg 570 237 decay;
+#X msg 612 237 attack;
+#X obj 515 282 prepend envelope;
+#X obj 622 282 prepend direction;
+#X msg 663 238 fwd;
+#X msg 693 238 rev;
+#X msg 740 284 grainvoices \$1;
+#X msg 379 281 pitch \$1;
+#X msg 949 254 panrnd \$1;
+#X msg 949 298 amprnd \$1;
+#X obj 947 187 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.03 256;
+#X obj 949 274 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.23 256;
+#X obj 949 231 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.85 256;
+#X obj 740 262 nbx 3 14 1 32 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 8 256;
+#X obj 468 256 nbx 3 14 -1 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 -0.18 256;
+#X obj 468 210 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 1 256;
+#X obj 378 209 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 67 256;
+#X obj 126 61 nbx 4 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.109939 256;
+#X text -268 9 s_graincloud - granularsynthesizer with a maximum of
+32 grainvoices;
+#N canvas 0 0 1366 702 REFERENCE 0;
+#X text 49 55 Summary: granularsynthesizer with a maximum of 32 grainvoices
+;
+#X text 50 87 Argument 0: name for state saving (required);
+#X text 50 126 Inlet 1: Signal for Sampleposition;
+#X text 50 146 Inlet 2: Bang to read Soundfile from Disk;
+#X text 49 337 Outlet 0: L-Output;
+#X text 48 357 Outlet 1: R-Output;
+#X text 48 32 Name: s_graincloud;
+#X text 50 110 Inlet 0: Trigger one grain<bang>;
+#X text 51 169 Inlet 3: messages. metroON<bool>: start intern-metro-clock
+for grain playback. metrospeed<float>: set speed of internal metro
+in ms. midipitch<f>: set pitch via midinotes \, 60 = normal pitch.
+pitch<float>: pitch sample. amp<f>: set volume. pan<float:-1 \, 1>:
+set positon in stereo panorama. envelope<message>: set envelope type:
+hanning \, decay \, attack. direction<message>: set playback direction
+for grains \, fwd \, rev. grainvoices<int:1 \, 32>: set number of grainvoices.
+grainlength<float:0 \, 1>:Set length of grains. posrnd<float:0 \, 1>:
+randomize grain position. panrnd<float:0 \, 1>: randomize stereo panorama
+amprnd<float:0 \, 1>: randomize volume buffer<list>: name of buffer
+to be used \, length of buffer in samples;
+#X text 48 393 Description: Graincloud makes a overlapping cloud of
+grains with a maximum of 32 grainvoices. Well suited for spacious pads
+\, clusters + textures of soundscapes and also very smooth timestretching.
+Using the buffer message you can set it to any buffer you want!;
+#X coords 0 -1 1 1 370 435 1 40 20;
+#X restore -269 33 pd REFERENCE;
+#X obj 379 262 nbx 3 14 -100 100 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 20 256;
+#X obj 188 86 phasor~ 0.01;
+#X obj 286 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 770 93 450 300 switch 0;
+#X obj 54 46 inlet~;
+#X obj 102 45 inlet~;
+#X obj 145 45 inlet;
+#X obj 130 100 *~;
+#X obj 55 101 *~;
+#X obj 145 72 ==;
+#X obj 55 136 outlet~;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 1;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 1;
+#X restore 136 138 pd switch;
+#X text 287 67 Set Sample Position by hand or move throught the sample
+automatically(timestretching);
+#X msg 434 160 6;
+#X msg 396 163 0;
+#X obj 1080 302 prepend buffer;
+#X obj 125 107 lop~ 7;
+#X msg 467 161 7;
+#X text 469 84 Rev Mode Check Pitch Length stuff and smp~;
+#X floatatom 864 197 5 0 0 0 - - -;
+#X obj 740 465 table array1;
+#X obj 740 487 table array2;
+#X obj 849 80 soundfiler;
+#X msg 1080 256 array1;
+#X msg 1090 277 array2;
+#X floatatom 201 41 5 0 0 0 - - -;
+#X obj 113 319 s_graincloud;
+#X msg 841 283 grainsize \$1;
+#X obj 178 -60 r peakdB;
+#X floatatom 184 -31 5 0 0 0 - - -;
+#X obj 258 350 dbtorms;
+#X obj 258 531 vline~;
+#X obj 258 468 spigot;
+#X msg 258 491 \$1 5;
+#X obj 258 323 r peakdB;
+#X obj 291 377 r peakstate;
+#X floatatom 291 562 5 0 0 0 - - -;
+#X obj 184 -8 - 44;
+#X obj 132 8 / 50;
+#X obj 184 13 abs;
+#X floatatom 128 34 5 0 0 0 - - -;
+#X obj 538 -6 readsf~ 2;
+#X msg 732 -24 start;
+#X msg 792 -27 stop;
+#X floatatom 628 0 5 0 0 0 - - -;
+#X msg 300 468 0 400;
+#X obj 539 45 throw~ out_L;
+#X obj 620 44 throw~ out_R;
+#X obj 328 531 vline~;
+#X obj 259 554 *~;
+#X obj 259 587 *~ 1;
+#X msg 344 470 1 400;
+#X obj 300 413 sel 0 1;
+#X obj 538 22 *~ 1;
+#X obj 568 21 *~ 1;
+#X obj 427 495 catch~ out_L;
+#X obj 508 494 catch~ out_R;
+#X msg 837 39 read -resize../samples/wind.aif array1;
+#X obj 753 -51 t b b;
+#X obj 846 -44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 867 -7 open ../samples/background.wav;
+#X connect 1 0 49 2;
+#X connect 2 0 39 0;
+#X connect 3 0 49 3;
+#X connect 4 0 0 0;
+#X connect 5 0 0 1;
+#X connect 6 0 4 1;
+#X connect 6 0 5 1;
+#X connect 7 0 49 3;
+#X connect 8 0 49 3;
+#X connect 9 0 49 3;
+#X connect 10 0 13 0;
+#X connect 11 0 13 0;
+#X connect 12 0 13 0;
+#X connect 13 0 49 3;
+#X connect 14 0 49 3;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 17 0 49 3;
+#X connect 18 0 49 3;
+#X connect 19 0 49 3;
+#X connect 20 0 49 3;
+#X connect 21 0 9 0;
+#X connect 22 0 20 0;
+#X connect 23 0 19 0;
+#X connect 24 0 17 0;
+#X connect 25 0 8 0;
+#X connect 26 0 7 0;
+#X connect 27 0 3 0;
+#X connect 28 0 2 0;
+#X connect 31 0 18 0;
+#X connect 32 0 34 1;
+#X connect 33 0 34 2;
+#X connect 34 0 49 1;
+#X connect 36 0 31 0;
+#X connect 37 0 31 0;
+#X connect 38 0 49 3;
+#X connect 39 0 34 0;
+#X connect 40 0 18 0;
+#X connect 42 0 50 0;
+#X connect 46 0 38 0;
+#X connect 47 0 38 0;
+#X connect 48 0 32 0;
+#X connect 49 0 4 0;
+#X connect 49 1 5 0;
+#X connect 50 0 49 3;
+#X connect 51 0 52 0;
+#X connect 52 0 60 0;
+#X connect 53 0 55 0;
+#X connect 54 0 72 0;
+#X connect 55 0 56 0;
+#X connect 56 0 54 0;
+#X connect 57 0 53 0;
+#X connect 58 0 55 1;
+#X connect 58 0 75 0;
+#X connect 59 0 73 1;
+#X connect 60 0 62 0;
+#X connect 61 0 63 0;
+#X connect 62 0 61 0;
+#X connect 63 0 28 0;
+#X connect 64 0 76 0;
+#X connect 64 1 77 0;
+#X connect 65 0 64 0;
+#X connect 66 0 64 0;
+#X connect 67 0 76 1;
+#X connect 67 0 77 1;
+#X connect 68 0 54 0;
+#X connect 71 0 72 1;
+#X connect 72 0 73 0;
+#X connect 73 0 5 1;
+#X connect 73 0 4 1;
+#X connect 74 0 71 0;
+#X connect 75 0 68 0;
+#X connect 75 1 74 0;
+#X connect 76 0 69 0;
+#X connect 77 0 70 0;
+#X connect 78 0 0 0;
+#X connect 79 0 0 1;
+#X connect 80 0 45 0;
+#X connect 81 0 65 0;
+#X connect 81 1 83 0;
+#X connect 82 0 81 0;
+#X connect 83 0 64 0;
