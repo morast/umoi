@@ -1,0 +1,12 @@
+#N canvas 748 368 450 300 10;
+#X obj 266 82 pvharm~;
+#X obj 329 125 switch~;
+#X obj 329 80 loadbang;
+#X msg 329 100 0;
+#X obj 265 102 disarray~;
+#X obj 265 123 dentist~;
+#X obj 266 60 reanimator~;
+#X obj 266 38 thresher~;
+#X obj 265 142 bthresher~;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
