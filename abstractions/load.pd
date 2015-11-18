@@ -1,4 +1,4 @@
-#N canvas 715 82 650 686 10;
+#N canvas 712 87 650 686 10;
 #X obj 124 205 textfile;
 #X msg 330 166 bang;
 #X msg 365 167 rewind;
@@ -39,6 +39,7 @@
 #X obj 108 359 symbol \$1;
 #X obj 108 338 t b a;
 #X obj 108 380 sprintf %s/%s;
+#X obj 296 565 print;
 #X connect 0 0 4 1;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -51,6 +52,7 @@
 #X connect 8 0 4 0;
 #X connect 9 0 31 0;
 #X connect 10 0 9 0;
+#X connect 10 0 39 0;
 #X connect 11 0 12 0;
 #X connect 12 0 13 0;
 #X connect 13 0 15 0;
