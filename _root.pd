@@ -1,9 +1,11 @@
-#N canvas 679 169 553 551 10;
+#N canvas 673 179 553 551 10;
 #X declare -lib zexy;
 #X declare -lib bsaylor;
 #X declare -path abstractions/;
 #X declare -lib iemmatrix;
 #X declare -path SliceJockey/abstractions/;
+#X declare -lib hexloader;
+#X declare -path bin/;
 #X declare -lib zexy;
 #X declare -lib bsaylor;
 #X declare -lib zexy;
@@ -18,7 +20,7 @@
 #X declare -lib bsaylor;
 #X declare -lib zexy;
 #X declare -lib bsaylor;
-#N canvas 347 207 545 300 libs 0;
+#N canvas 341 217 545 300 libs 1;
 #X obj -14 -12 declare -lib zexy;
 #X obj -14 8 declare -lib bsaylor;
 #X obj 198 -11 declare -path abstractions/;
@@ -26,6 +28,8 @@
 #X text -12 -39 Libaries;
 #X text 199 -36 Paths;
 #X obj 198 8 declare -path SliceJockey/abstractions/;
+#X obj -14 46 import hexloader;
+#X obj 198 29 declare -path bin/;
 #X restore -6 -5 pd libs;
 #N canvas 65 183 450 300 tables 0;
 #N canvas 163 249 450 300 irTables 0;
@@ -49,7 +53,7 @@
 #X restore 9 5 pd irTables;
 #X text 88 2 <- all Impulse Response Tables here;
 #X restore -6 15 pd tables;
-#N canvas 214 209 995 518 scene2 1;
+#N canvas 371 250 995 518 scene2 1;
 #X obj 43 236 outlet~ L;
 #X obj 120 236 outlet~ R;
 #X obj 165 131 throw~ scene2-Main-L;
@@ -58,7 +62,7 @@
 #X obj 120 209 catch~ scene2-Main-R;
 #X obj 43 157 catch~ scene2-Main-mono;
 #X obj 38 -43 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 5;
+-1 0;
 #N canvas 784 213 567 417 textfiler 0;
 #X obj 25 24 t b b;
 #X msg 25 83 rewind;
@@ -217,7 +221,7 @@
 #X obj 210 90 *~;
 #X floatatom 225 67 5 0 0 0 - - -;
 #X text 248 49 Sample sart randomize;
-#X obj 252 -32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 252 -32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X connect 4 0 0 0;
 #X connect 5 0 1 0;
