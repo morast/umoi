@@ -1,5 +1,5 @@
-#N canvas 115 87 977 686 10;
-#N canvas 758 246 450 300 init 1;
+#N canvas 106 102 977 686 10;
+#N canvas 758 246 450 300 init 0;
 #X obj 48 39 loadbang;
 #X obj 48 76 \$0;
 #X msg 48 125 \; \$1-peakstate 0 \; \$1-smooth 50 \; \$1-attackThresh
@@ -11,7 +11,7 @@
 #X obj -115 130 rmstodb;
 #X obj -115 89 pack f f;
 #X obj -115 110 line;
-#N canvas 546 208 450 359 noteEvent 1;
+#N canvas 546 208 450 359 noteEvent 0;
 #X obj 5 -7 inlet;
 #X obj 5 118 >;
 #X obj 5 140 sel 1;
@@ -73,22 +73,18 @@
 #X obj 46 -68 inlet;
 #X obj -115 -72 inlet~;
 #X obj -115 227 outlet;
-#X obj -45 227 outlet;
+#X obj -46 227 outlet;
 #X obj 46 -46 u_dispatch \$0 \$1 attackThresh;
 #X obj 46 -26 u_dispatch \$0 \$1 offThresh;
 #X obj 46 -5 u_dispatch \$0 \$1 smooth;
 #X obj 46 17 u_dispatch \$0 \$1 wait;
 #X obj -70 65 r \$0-smooth;
-#X obj -115 178 s \$0-peakstate;
-#X obj -46 198 s \$0-peakdB;
 #X connect 1 0 3 0;
 #X connect 2 0 5 0;
 #X connect 3 0 4 0;
 #X connect 4 0 2 0;
 #X connect 5 0 8 0;
-#X connect 5 0 15 0;
 #X connect 5 1 9 0;
-#X connect 5 1 16 0;
 #X connect 6 0 10 0;
 #X connect 7 0 1 0;
 #X connect 10 0 11 0;
