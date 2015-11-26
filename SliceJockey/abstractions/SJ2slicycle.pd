@@ -1,4 +1,4 @@
-#N canvas 641 163 412 397 10;
+#N canvas 626 188 412 397 10;
 #N canvas 713 343 330 358 clear 0;
 #X obj 21 8 r \$0-sclear;
 #X obj 204 43 r clear-slicycle\$1;
@@ -2814,20 +2814,20 @@ pen 6 27 1 24 -260818 -260818 -1;
 #X text 73 230 scales;
 #X text 124 230 filter;
 #X text 174 230 modulation;
-#N canvas 65 143 250 227 scope 0;
+#N canvas 65 209 250 227 scope 0;
 #X obj 44 56 r~ slicycle\$1-outleft;
 #X obj 20 31 r~ slicycle\$1-outright;
 #X obj 20 85 *~ 0.7;
 #X obj 46 123 bng 70 250 50 0 \$0-settingsbang empty empty 17 7 0 10
 -262144 -1 -1;
-#X obj 116 123 bng 70 250 50 0 \$0-settingsbang empty empty 17 7 0
+#X obj 150 120 bng 70 250 50 0 \$0-settingsbang empty empty 17 7 0
 10 -262144 -1 -1;
 #X obj 20 145 cyclone/Scope~ 200 50 128 3 128 -1.5 1.5 0 0 0 0 102
 255 51 0 0 0 0;
 #X obj 20 120 hradio 25 1 0 8 \$0-dummysend \$0-rec-indicator empty
 0 25 1 20 -1 -128992 -258699 0;
-#X obj 214 148 cnv 5 5 5 empty \$0-settingslabel1 ....... -70 -10 1
-30 -1 -262144 0;
+#X obj 214 148 cnv 5 5 5 empty \$0-settingslabel1 ____ -70 -10 1 30
+-1 -262144 0;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
 #X connect 2 0 5 0;
@@ -2838,23 +2838,23 @@ pen 6 27 1 24 -260818 -260818 -1;
 #X text 127 27 input;
 #X text 170 28 output;
 #N canvas 799 161 353 508 settings 0;
-#N canvas 781 292 226 406 \$0-settings 0;
+#N canvas 778 325 226 406 \$0-settings 0;
 #X obj 17 153 hsl 195 50 40 70 0 1 \$0-silencethresholdsend \$0-silencethresholdreceive
-silence-threshold 90 25 0 10 -228856 -260097 -1 10700 0;
+silence-threshold 90 25 0 10 -228856 -260097 -1 7214 0;
 #X floatatom 42 169 5 0 0 1 dB - -;
 #X obj 17 208 hsl 195 50 100 500 0 0 \$0-timeconstantsend \$0-timeconstantreceive
-time-constant 115 25 0 10 -228856 -260097 -1 7019 0;
+time-constant 115 25 0 10 -228856 -260097 -1 19400 0;
 #X obj 17 263 hsl 195 50 0 1 0 0 \$0-amplitudecompsend \$0-amplitudecompreceive
-amplitude-compensation 63 25 0 10 -228856 -260097 -1 2300 0;
+amplitude-compensation 63 25 0 10 -228856 -260097 -1 2242 0;
 #X floatatom 45 280 5 0 0 0 - - -;
 #X obj 17 43 hsl 195 50 3 20 0 0 \$0-attackstepsend \$0-attackstepreceive
-attack-step 125 25 0 10 -228856 -260097 -1 2730 0;
+attack-step 125 25 0 10 -228856 -260097 -1 19400 0;
 #X floatatom 44 60 5 0 0 1 dB - -;
 #X obj 17 98 hsl 195 50 60 90 0 0 \$0-attackthresholdsend \$0-attackthresholdreceive
 attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X floatatom 43 115 5 0 0 1 dB - -;
 #N canvas 410 357 355 380 triplets 0;
-#X obj 20 20 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 2 12 28
+#X obj 20 20 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive - 12 28
 1 30 -228856 -228856 -1;
 #X obj 126 56 loadbang;
 #X msg 126 84 1;
@@ -2914,8 +2914,8 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X restore 14 318 pd triplets;
 #N canvas 293 383 352 252 reverse 0;
 #X obj 20 20 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive < 10 20
-0 50 -260818 -260818 -1;
-#X obj 20 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+0 50 -233017 -233017 -1;
+#X obj 20 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 132 102 sel 0 1;
 #X obj 200 48 loadbang;
@@ -2995,7 +2995,7 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X restore 114 318 pd close;
 #X floatatom 43 225 5 0 0 1 ms - -;
 #X obj 17 -12 hsl 195 50 3 20 0 0 \$0-settingspresetswitch \$0-settingslabel2
-....... 2 15 1 50 -262144 -262144 -1 0 0;
+____ 2 15 1 50 -262144 -262144 -1 0 0;
 #N canvas 801 565 226 193 close 0;
 #X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive X 12 29
 1 40 -233017 -233017 -66577;
@@ -3184,7 +3184,7 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 69 0 67 0;
 #X restore 245 65 pd presets;
 #X text 233 13 popup-window;
-#X obj 32 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 32 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #N canvas 948 426 198 228 labels 0;
 #X obj 24 33 inlet;
