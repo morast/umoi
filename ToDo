@@ -1,3 +1,33 @@
+bGranular-Cello:
+-Free Parameter Scale and Select(Display of Amplitude and Pitch)
+-GUI with more controls
+-Switch+Select between diffrent sounds(ram-buffer)/maybe real cloud grainsynthesis
+-Sound of a glass
+-------------------------------
+Slice Jockey:
+-Settings from Outside of Abstractions
+-Pitch Tracking for Adaption of Pitches
+-OneShot Mode
+-Scale Import from Scale Designer
+-Playback of MidiFiles from talking for example...
+-------------------------------
+Mixer:
+-Quadrophonic Setup with Stereo Switch
+-Move IRReverb into Send Channel?
+-------------------------------
+Follower:
+-Integrate into current enviroment
+-------------------------------
+Input Tracking:
+-Input Tracking for Concrete Objets
+------------------------------
+Misc:
+-Integrate Scene Subpatches in a useful way
+-Wind Scene Refine/Overtone Filter FFT
+--------------------------------
+Research:
+-Diego Stoccos IR Rythmn Plugin
+
 Piece
 -3 Scenes
 -Wind Scene

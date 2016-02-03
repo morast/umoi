@@ -1,4 +1,4 @@
-#N canvas 712 87 650 686 10;
+#N canvas 703 102 650 686 10;
 #X obj 124 205 textfile;
 #X msg 330 166 bang;
 #X msg 365 167 rewind;
@@ -32,14 +32,14 @@
 #X obj 108 403 prepend symbol;
 #X obj 152 479 prepend symbol;
 #X obj 108 632 tabwrite \$2-samples;
-#X obj 280 631 table \$2-samples;
+#X obj 360 569 table \$2-samples;
 #X text 406 122 Check how many elemts are in the textfile;
 #X text 142 136 Read all lines of txt.;
 #X text 160 146 sequentially;
 #X obj 108 359 symbol \$1;
 #X obj 108 338 t b a;
 #X obj 108 380 sprintf %s/%s;
-#X obj 296 565 print;
+#X obj 244 634 outlet;
 #X connect 0 0 4 1;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -52,7 +52,6 @@
 #X connect 8 0 4 0;
 #X connect 9 0 31 0;
 #X connect 10 0 9 0;
-#X connect 10 0 39 0;
 #X connect 11 0 12 0;
 #X connect 12 0 13 0;
 #X connect 13 0 15 0;
@@ -81,6 +80,7 @@
 #X connect 27 3 8 0;
 #X connect 27 4 19 0;
 #X connect 28 0 37 0;
+#X connect 28 0 39 0;
 #X connect 28 1 16 0;
 #X connect 29 0 23 0;
 #X connect 30 0 23 1;
