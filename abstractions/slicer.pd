@@ -1,4 +1,4 @@
-#N canvas 630 102 650 686 10;
+#N canvas 624 82 650 686 10;
 #N canvas 713 343 330 358 clear 0;
 #X obj 21 8 r \$0-sclear;
 #X obj 204 43 r clear-slicycle\$1;
@@ -42,7 +42,7 @@
 #X msg 76 197 0;
 #X msg 61 98 0;
 #X obj 120 120 bng 50 100 50 0 \$0-sclear \$0-rclear //// 8 28 1 30
--262144 -260818 -166441;
+-261681 -260818 -1;
 #X obj 245 76 delay 10;
 #X msg 245 107 0;
 #X msg 204 76 1;
@@ -82,7 +82,7 @@
 #N canvas 646 302 365 404 filtertype 0;
 #X obj 206 103 r filtertype-slicycle\$1;
 #X obj 30 200 bng 50 300 50 0 \$0-filterbuttonsend \$0-filterbuttonreceive
-ext 6 27 1 24 -260818 -260818 -1;
+shot 6 27 1 24 -260818 -260818 -1;
 #X obj 40 101 cyclone/MouseState;
 #X obj 82 52 sel 0;
 #X msg 40 76 poll;
@@ -273,7 +273,7 @@ ext 6 27 1 24 -260818 -260818 -1;
 #X connect 13 0 6 0;
 #X coords 0 -1 1 1 50 50 2 200 100;
 #X restore 170 50 pd recycle;
-#N canvas 123 210 513 461 slicycle 0;
+#N canvas 117 220 513 461 slicycle 0;
 #N canvas 594 258 471 487 cuepoints 0;
 #X obj 36 25 inlet;
 #X obj 343 26 inlet;
@@ -850,7 +850,7 @@ to speed factor.;
 #X obj 114 -95 spigot;
 #X obj 16 -96 spigot;
 #X obj 218 -150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 218 -130 == 0;
 #X obj 279 -314 r \$0-clockMode;
 #X floatatom 293 -283 5 0 0 0 - - -;
@@ -859,7 +859,7 @@ to speed factor.;
 #X obj 279 -256 sel 1 2 3;
 #N canvas 915 450 375 310 internalClock 0;
 #N canvas 617 219 442 492 generate-ticks 0;
-#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 32 146 metro;
 #N canvas 988 94 208 259 milliseconds 0;
@@ -2214,7 +2214,7 @@ to speed factor.;
 #X obj 212 36 table \$1-slices 1.05e+06;
 #X obj 213 63 table \$1-cuepoints 32;
 #X obj 14 156 slicerec~ \$1-slices;
-#N canvas 358 427 450 300 trigger 0;
+#N canvas 352 437 450 300 trigger 0;
 #X obj 78 5 inlet;
 #X obj 149 6 r \$0-clockMode;
 #X obj 78 100 sel 0;
@@ -2222,15 +2222,19 @@ to speed factor.;
 #X obj 149 27 sel 1;
 #X msg 149 50 1;
 #X msg 180 50 0;
-#X obj 78 122 s \$0-reset;
+#X obj 78 152 s \$0-reset;
+#X obj 78 129 del 0;
+#X obj 118 101 r \$0-trigger-delay;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
-#X connect 2 0 7 0;
+#X connect 2 0 8 0;
 #X connect 3 0 2 0;
 #X connect 4 0 5 0;
 #X connect 4 1 6 0;
 #X connect 5 0 3 1;
 #X connect 6 0 3 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 1;
 #X restore 125 194 pd trigger;
 #X connect 1 0 24 0;
 #X connect 3 0 2 0;
@@ -2269,8 +2273,8 @@ to speed factor.;
 #X msg 148 85 slicycle.input;
 #X obj 148 114 s buttonhelp;
 #X obj 26 266 pack \$2 \$2 11;
-#X obj 300 100 bng 50 100 50 0 \$0-sinput \$0-rinput > 15 25 1 40 -262144
--262144 -128992;
+#X obj 300 100 bng 50 100 50 0 \$0-sinput \$0-rinput > 15 25 1 40 -261681
+-261681 -128992;
 #N canvas 648 451 355 316 click 0;
 #X obj 72 22 cyclone/MouseState;
 #X obj 32 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
@@ -2353,7 +2357,7 @@ to speed factor.;
 #X obj 120 429 makefilename %d;
 #X msg 120 457 label \$1;
 #X obj 240 100 bng 50 200 50 0 \$0-slicesbuttonsend \$0-slicesbuttonreceive
-8 18 27 1 24 -262144 -260818 -1;
+8 18 27 1 24 -261681 -260818 -1;
 #X obj 42 103 cyclone/MouseState;
 #X obj 42 132 sel 0;
 #X msg 42 78 poll;
@@ -3005,7 +3009,7 @@ pen 6 27 1 24 -260818 -260818 -1;
 #X obj 20 145 cyclone/Scope~ 200 50 128 3 128 -1.5 1.5 0 0 0 0 102
 255 51 0 0 0 0;
 #X obj 20 120 hradio 25 1 0 8 \$0-dummysend \$0-rec-indicator empty
-0 25 1 20 -1 -128992 -258699 0;
+0 25 1 20 -1 -128992 -258699 5;
 #X obj 214 148 cnv 5 5 5 empty \$0-settingslabel1 ....... -70 -10 1
 30 -1 -262144 0;
 #X connect 0 0 2 0;
@@ -3436,7 +3440,7 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X obj 170 175 bng 50 250 50 0 \$0-pattern-vis empty Pttr 12 24 0 15
 -262144 -1 -1;
 #X obj 385 220 r \$0-pattern-vis;
-#N canvas 65 54 1301 714 \$0-pattern 1;
+#N canvas 65 82 650 686 \$0-pattern 1;
 #N canvas 640 87 650 686 pattern 0;
 #X obj 101 49 moses 8;
 #X obj 101 -3 r \$0-beat;
@@ -4966,17 +4970,17 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X obj 590 262 s \$0-openPattern;
 #X msg 589 205 ../pattern/scene1;
 #X obj 860 35 vsl 15 90 0.01 1 0 0 empty empty Pitch 0 -9 0 10 -262144
--1 -1 5600 1;
+-1 -1 0 1;
 #X obj 905 35 vsl 15 90 0 1 0 0 empty empty Variation 0 -9 0 10 -262144
--1 -1 2300 1;
+-1 -1 0 1;
 #X obj 751 31 vsl 15 90 0.01 1 0 0 empty empty Pitch 0 -9 0 10 -262144
--1 -1 6600 1;
+-1 -1 0 1;
 #X obj 796 31 vsl 15 90 0 1 0 0 empty empty Variation 0 -9 0 10 -262144
--1 -1 3900 1;
+-1 -1 0 1;
 #X obj 640 14 vsl 15 90 0 1 0 0 empty empty Pitch 0 -9 0 10 -262144
--1 -1 7100 1;
+-1 -1 0 1;
 #X obj 685 14 vsl 15 90 0 1 0 0 empty empty Variation 0 -9 0 10 -262144
--1 -1 3400 1;
+-1 -1 0 1;
 #N canvas 831 457 450 300 pitch 0;
 #X obj 7 -94 inlet;
 #X obj 52 -94 inlet;
@@ -5240,9 +5244,9 @@ empty 0 -8 0 10 -262144 -1 -1 16 256;
 #X obj -53 -200 nbx 5 14 -1e+37 1e+37 0 0 \$0-beat-mod \$0-beat-mod
 empty 0 -8 0 10 -262144 -1 -1 16 256;
 #X obj -52 -84 nbx 5 14 -1e+37 1e+37 0 0 \$0-quaver-mod \$0-quaver-mod
-empty 0 -8 0 10 -262144 -1 -1 9 256;
+empty 0 -8 0 10 -262144 -1 -1 16 256;
 #X obj -51 44 nbx 5 14 -1e+37 1e+37 0 0 \$0-squaver-mod \$0-squaver-mod
-empty 0 -8 0 10 -262144 -1 -1 8 256;
+empty 0 -8 0 10 -262144 -1 -1 16 256;
 #X obj 410 -220 nbx 5 14 -1e+37 1e+37 0 0 \$0-beat-speed-mod \$0-beat-speed-mod
 empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj 419 -116 nbx 5 14 -1e+37 1e+37 0 0 \$0-quaver-speed-mod \$0-quaver-speed-mod
@@ -5251,6 +5255,8 @@ empty 0 -8 0 10 -262144 -1 -1 0 256;
 empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X floatatom 433 54 5 0 0 0 - - -;
 #X obj 685 -37 r beat\$1-vari;
+#X floatatom 468 124 5 0 0 0 - - -;
+#X obj 468 146 s \$0-trigger-delay;
 #X connect 4 0 3 0;
 #X connect 7 0 6 0;
 #X connect 9 0 5 0;
@@ -5279,6 +5285,7 @@ empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X connect 57 0 56 0;
 #X connect 64 0 47 0;
 #X connect 65 0 37 0;
+#X connect 66 0 67 0;
 #X restore 385 201 pd \$0-pattern;
 #X obj 385 239 \$0;
 #X msg 385 258 \; pd-\$1-pattern vis 1;
