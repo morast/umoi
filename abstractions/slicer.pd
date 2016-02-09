@@ -1,4 +1,4 @@
-#N canvas 624 82 650 686 10;
+#N canvas 603 87 650 686 10;
 #N canvas 713 343 330 358 clear 0;
 #X obj 21 8 r \$0-sclear;
 #X obj 204 43 r clear-slicycle\$1;
@@ -42,7 +42,7 @@
 #X msg 76 197 0;
 #X msg 61 98 0;
 #X obj 120 120 bng 50 100 50 0 \$0-sclear \$0-rclear //// 8 28 1 30
--261681 -260818 -1;
+-262144 -260818 -166441;
 #X obj 245 76 delay 10;
 #X msg 245 107 0;
 #X msg 204 76 1;
@@ -82,7 +82,7 @@
 #N canvas 646 302 365 404 filtertype 0;
 #X obj 206 103 r filtertype-slicycle\$1;
 #X obj 30 200 bng 50 300 50 0 \$0-filterbuttonsend \$0-filterbuttonreceive
-shot 6 27 1 24 -260818 -260818 -1;
+ext 6 27 1 24 -260818 -260818 -1;
 #X obj 40 101 cyclone/MouseState;
 #X obj 82 52 sel 0;
 #X msg 40 76 poll;
@@ -273,7 +273,7 @@ shot 6 27 1 24 -260818 -260818 -1;
 #X connect 13 0 6 0;
 #X coords 0 -1 1 1 50 50 2 200 100;
 #X restore 170 50 pd recycle;
-#N canvas 117 220 513 461 slicycle 0;
+#N canvas 114 225 513 461 slicycle 0;
 #N canvas 594 258 471 487 cuepoints 0;
 #X obj 36 25 inlet;
 #X obj 343 26 inlet;
@@ -739,7 +739,7 @@ to speed factor.;
 #X obj 35 33 r \$0-inputstatus;
 #X obj 14 8 inlet~;
 #X text 158 153 [playback] subpatches:;
-#N canvas 65 102 650 686 ticks 0;
+#N canvas 65 107 650 686 ticks 0;
 #X obj 16 -181 r \$0-localticks;
 #X obj 16 179 outlet;
 #X obj 73 179 outlet;
@@ -850,7 +850,7 @@ to speed factor.;
 #X obj 114 -95 spigot;
 #X obj 16 -96 spigot;
 #X obj 218 -150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 218 -130 == 0;
 #X obj 279 -314 r \$0-clockMode;
 #X floatatom 293 -283 5 0 0 0 - - -;
@@ -859,7 +859,7 @@ to speed factor.;
 #X obj 279 -256 sel 1 2 3;
 #N canvas 915 450 375 310 internalClock 0;
 #N canvas 617 219 442 492 generate-ticks 0;
-#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 32 146 metro;
 #N canvas 988 94 208 259 milliseconds 0;
@@ -2273,8 +2273,8 @@ to speed factor.;
 #X msg 148 85 slicycle.input;
 #X obj 148 114 s buttonhelp;
 #X obj 26 266 pack \$2 \$2 11;
-#X obj 300 100 bng 50 100 50 0 \$0-sinput \$0-rinput > 15 25 1 40 -261681
--261681 -128992;
+#X obj 300 100 bng 50 100 50 0 \$0-sinput \$0-rinput > 15 25 1 40 -262144
+-262144 -128992;
 #N canvas 648 451 355 316 click 0;
 #X obj 72 22 cyclone/MouseState;
 #X obj 32 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
@@ -2357,7 +2357,7 @@ to speed factor.;
 #X obj 120 429 makefilename %d;
 #X msg 120 457 label \$1;
 #X obj 240 100 bng 50 200 50 0 \$0-slicesbuttonsend \$0-slicesbuttonreceive
-8 18 27 1 24 -261681 -260818 -1;
+8 18 27 1 24 -262144 -260818 -1;
 #X obj 42 103 cyclone/MouseState;
 #X obj 42 132 sel 0;
 #X msg 42 78 poll;
@@ -3009,7 +3009,7 @@ pen 6 27 1 24 -260818 -260818 -1;
 #X obj 20 145 cyclone/Scope~ 200 50 128 3 128 -1.5 1.5 0 0 0 0 102
 255 51 0 0 0 0;
 #X obj 20 120 hradio 25 1 0 8 \$0-dummysend \$0-rec-indicator empty
-0 25 1 20 -1 -128992 -258699 5;
+0 25 1 20 -1 -128992 -258699 0;
 #X obj 214 148 cnv 5 5 5 empty \$0-settingslabel1 ....... -70 -10 1
 30 -1 -262144 0;
 #X connect 0 0 2 0;
@@ -3423,24 +3423,28 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X obj 75 376 outlet~;
 #X obj 126 376 outlet~;
 #X obj 328 49 inlet;
-#N canvas 901 397 450 300 control 0;
+#N canvas 895 407 450 300 control 0;
 #X obj 82 43 inlet;
 #X obj 82 106 s set-inputstatus-slicycle\$1;
 #X obj 128 145 s recycle-slicycle\$1;
 #X obj 176 181 s clear-slicycle\$1;
-#X obj 82 65 route input output clear bpm;
 #X obj 219 243 s \$0-BPM;
-#X connect 0 0 4 0;
-#X connect 4 0 1 0;
-#X connect 4 1 2 0;
-#X connect 4 2 3 0;
-#X connect 4 3 5 0;
+#X obj 82 65 route input output clear bpm pttrfwd pttrbwd;
+#X obj 256 90 s \$0-pttrfwd;
+#X obj 299 121 s \$0-pttrbwd;
+#X connect 0 0 5 0;
+#X connect 5 0 1 0;
+#X connect 5 1 2 0;
+#X connect 5 2 3 0;
+#X connect 5 3 4 0;
+#X connect 5 4 6 0;
+#X connect 5 5 7 0;
 #X restore 328 71 pd control;
 #X obj 22 260 inlet~;
 #X obj 170 175 bng 50 250 50 0 \$0-pattern-vis empty Pttr 12 24 0 15
 -262144 -1 -1;
 #X obj 385 220 r \$0-pattern-vis;
-#N canvas 65 82 650 686 \$0-pattern 1;
+#N canvas 65 82 1301 686 \$0-pattern 1;
 #N canvas 640 87 650 686 pattern 0;
 #X obj 101 49 moses 8;
 #X obj 101 -3 r \$0-beat;
@@ -3610,8 +3614,8 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X obj 426 -58 s \$0-clear-all;
 #X obj 426 -85 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 625 102 450 300 grid-functions 0;
-#N canvas 519 393 450 300 clear 0;
+#N canvas 610 127 450 300 grid-functions 0;
+#N canvas 516 398 450 300 clear 0;
 #X obj 9 -34 r \$0-clear-all;
 #X obj 69 46 \$0;
 #X obj 9 -9 t b b;
@@ -3634,33 +3638,72 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 8 0 7 0;
 #X connect 9 0 6 0;
 #X restore 42 32 pd clear;
-#N canvas 713 194 513 404 open 0;
-#X obj 121 19 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 16 -38 r \$0-openPattern;
+#N canvas 198 241 824 527 open 0;
 #X obj 16 -10 pack s \$0 \$1;
 #X msg 16 16 \$2 \$1 \$3;
-#X msg 135 61 \; \$1-beat-pattern-store read \$2-\$3beat-pattern.txt
+#X msg 20 61 \; \$1-beat-pattern-store read \$2-\$3beat-pattern.txt
 ;
-#X msg 137 108 \; \$1-quaver-pattern-store read \$2-\$3quaver-pattern.txt
+#X msg 22 108 \; \$1-quaver-pattern-store read \$2-\$3quaver-pattern.txt
 ;
-#X msg 133 149 \; \$1-squaver-pattern-store read \$2-\$3squaver-pattern.txt
+#X msg 18 149 \; \$1-squaver-pattern-store read \$2-\$3squaver-pattern.txt
 ;
-#X msg 131 186 \; \$1-beat-speed-store read \$2-\$3beat-speed.txt;
-#X msg 133 233 \; \$1-quaver-speed-store read \$2-\$3quaver-speed.txt
+#X msg 16 186 \; \$1-beat-speed-store read \$2-\$3beat-speed.txt;
+#X msg 18 233 \; \$1-quaver-speed-store read \$2-\$3quaver-speed.txt
 ;
-#X msg 129 272 \; \$1-squaver-speed-store read \$2-\$3squaver-speed.txt
+#X msg 14 272 \; \$1-squaver-speed-store read \$2-\$3squaver-speed.txt
 ;
+#X obj 563 -134 r \$0-openPattern;
+#X obj 16 -38 r \$0-openSeq;
+#X obj 563 -55 t b l;
+#X obj 429 11 s \$0-update-grid;
+#X msg 429 -27 update;
+#X msg 420 64 \; \$1-beat-pattern read \$2-beat-seq.txt;
+#X msg 428 103 \; \$1-quaver-pattern read \$2-quaver-seq.txt;
+#X msg 437 140 \; \$1-squaver-pattern read \$2-squaver-seq.txt;
+#X msg 413 186 \; \$1-beat-speed read \$2-beat-speed-seq.txt;
+#X msg 421 224 \; \$1-quaver-speed read \$2-quaver-speed-seq.txt;
+#X msg 430 262 \; \$1-squaver-speed read \$2-squaver-speed-seq.txt
+;
+#X msg 780 64 \; \$1-beat-pattern-omit read \$2-beat-seq-omit.txt;
+#X msg 788 103 \; \$1-quaver-pattern-omit read \$2-quaver-seq-omit.txt
+;
+#X msg 797 141 \; \$1-squaver-pattern-omit read \$2-squaver-seq-omit.txt
+;
+#X msg 773 185 \; \$1-beat-speed-omit read \$2-beat-speed-omit.txt
+;
+#X msg 781 225 \; \$1-quaver-speed-omit read \$2-quaver-speed-omit.txt
+;
+#X msg 790 262 \; \$1-squaver-speed-omit read \$2-squaver-speed-omit.txt
+;
+#X msg 563 -83 \$2 \$1;
+#X obj 563 -106 pack s \$0;
+#X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 3 0 5 0;
-#X connect 3 0 6 0;
-#X connect 3 0 7 0;
-#X connect 3 0 8 0;
-#X connect 3 0 9 0;
+#X connect 1 0 3 0;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;
+#X connect 8 0 26 0;
+#X connect 9 0 0 0;
+#X connect 10 0 12 0;
+#X connect 10 1 19 0;
+#X connect 10 1 20 0;
+#X connect 10 1 22 0;
+#X connect 10 1 13 0;
+#X connect 10 1 21 0;
+#X connect 10 1 23 0;
+#X connect 10 1 24 0;
+#X connect 10 1 14 0;
+#X connect 10 1 15 0;
+#X connect 10 1 16 0;
+#X connect 10 1 17 0;
+#X connect 10 1 18 0;
+#X connect 12 0 11 0;
+#X connect 25 0 10 0;
+#X connect 26 0 25 0;
 #X restore 42 71 pd open;
-#N canvas 629 92 650 686 store 0;
+#N canvas 596 87 650 686 store 0;
 #N canvas 65 54 1301 714 beat 0;
 #X obj 1098 54 table \$0-beat-pattern-store 1024;
 #X obj 158 10 r \$0-store-index;
@@ -4754,23 +4797,51 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 85 0 87 0;
 #X restore 42 37 pd squaver-speed;
 #X restore 42 90 pd store;
-#N canvas 445 260 584 438 writeOut 0;
+#N canvas 129 260 1158 458 writeOut 0;
 #X obj 54 24 savepanel;
 #X obj 54 -22 r \$0-writeOut;
 #X obj 54 47 pack s \$0 \$1;
 #X msg 54 69 \$2 \$1 \$3;
-#X msg 122 127 \; \$1-beat-pattern-store write \$2-\$3beat-pattern.txt
+#X msg 54 127 \; \$1-beat-pattern-store write \$2-\$3beat-pattern.txt
 ;
-#X msg 122 163 \; \$1-quaver-pattern-store write \$2-\$3quaver-pattern.txt
+#X msg 54 163 \; \$1-quaver-pattern-store write \$2-\$3quaver-pattern.txt
 ;
-#X msg 118 203 \; \$1-squaver-pattern-store write \$2-\$3squaver-pattern.txt
+#X msg 50 203 \; \$1-squaver-pattern-store write \$2-\$3squaver-pattern.txt
 ;
-#X msg 116 241 \; \$1-beat-speed-store write \$2-\$3beat-speed.txt
+#X msg 48 241 \; \$1-beat-speed-store write \$2-\$3beat-speed.txt;
+#X msg 50 288 \; \$1-quaver-speed-store write \$2-\$3quaver-speed.txt
 ;
-#X msg 118 288 \; \$1-quaver-speed-store write \$2-\$3quaver-speed.txt
+#X msg 51 322 \; \$1-squaver-speed-store write \$2-\$3squaver-speed.txt
 ;
-#X msg 119 322 \; \$1-squaver-speed-store write \$2-\$3squaver-speed.txt
+#X obj 438 29 savepanel;
+#X text 149 -21 Write Out Pattern Sequence;
+#X text 543 -19 Write Out Single Pattern;
+#X obj 438 -19 r \$0-savePattern;
+#X obj 496 8 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 438 111 \; \$1-beat-pattern write \$2-beat-seq.txt;
+#X msg 446 150 \; \$1-quaver-pattern write \$2-quaver-seq.txt;
+#X msg 455 187 \; \$1-squaver-pattern write \$2-squaver-seq.txt;
+#X msg 431 232 \; \$1-beat-speed-pattern write \$2-beat-speed-seq.txt
 ;
+#X msg 439 271 \; \$1-quaver-speed-pattern write \$2-quaver-speed-seq.txt
+;
+#X msg 448 309 \; \$1-squaver-speed-pattern write \$2-squaver-speed-seq.txt
+;
+#X msg 798 111 \; \$1-beat-pattern-omit write \$2-beat-seq-omit.txt
+;
+#X msg 806 150 \; \$1-quaver-pattern-omit write \$2-quaver-seq-omit.txt
+;
+#X msg 815 187 \; \$1-squaver-pattern-omit write \$2-squaver-seq-omit.txt
+;
+#X msg 791 232 \; \$1-beat-speed-omit write \$2-beat-speed-omit.txt
+;
+#X msg 799 272 \; \$1-quaver-speed-omit write \$2-quaver-speed-omit.txt
+;
+#X msg 808 309 \; \$1-squaver-speed-omit write \$2-squaver-speed-omit.txt
+;
+#X obj 438 52 pack s \$0;
+#X msg 438 74 \$2 \$1;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -4780,6 +4851,22 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 3 0 7 0;
 #X connect 3 0 8 0;
 #X connect 3 0 9 0;
+#X connect 10 0 27 0;
+#X connect 13 0 10 0;
+#X connect 14 0 10 0;
+#X connect 27 0 28 0;
+#X connect 28 0 15 0;
+#X connect 28 0 16 0;
+#X connect 28 0 17 0;
+#X connect 28 0 18 0;
+#X connect 28 0 19 0;
+#X connect 28 0 20 0;
+#X connect 28 0 21 0;
+#X connect 28 0 22 0;
+#X connect 28 0 23 0;
+#X connect 28 0 24 0;
+#X connect 28 0 25 0;
+#X connect 28 0 26 0;
 #X restore 42 52 pd writeOut;
 #X restore 427 -14 pd grid-functions;
 #X msg 504 -195 update;
@@ -4958,17 +5045,12 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X obj 314 314 s \$0-store-index;
 #X obj 416 222 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 441 221 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
 #X obj 416 281 s \$0-save;
-#X obj 441 261 s \$0-load;
 #X obj 287 257 t b f;
-#X obj 287 278 s \$0-load;
+#X obj 287 291 s \$0-load;
 #X obj 502 261 s \$0-writeOut;
 #X obj 502 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 590 262 s \$0-openPattern;
-#X msg 589 205 ../pattern/scene1;
 #X obj 860 35 vsl 15 90 0.01 1 0 0 empty empty Pitch 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 905 35 vsl 15 90 0 1 0 0 empty empty Variation 0 -9 0 10 -262144
@@ -5032,7 +5114,7 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 6 0 9 0;
 #X connect 6 1 7 0;
 #X connect 7 0 9 1;
-#X restore 751 144 pd pitch;
+#X restore 751 158 pd pitch;
 #N canvas 831 457 450 300 pitch 0;
 #X obj 7 -94 inlet;
 #X obj 52 -94 inlet;
@@ -5058,13 +5140,12 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 6 0 9 0;
 #X connect 6 1 7 0;
 #X connect 7 0 9 1;
-#X restore 860 141 pd pitch;
+#X restore 862 171 pd pitch;
 #X obj 640 -60 r beat\$1-speed;
 #X obj 751 -60 r quaver\$1-speed;
 #X obj 861 -60 r squaver\$1-speed;
 #X obj 796 -37 r quaver\$1-vari;
 #X obj 906 -37 r squaver\$1-vari;
-#X msg 553 185 ../pattern/misty;
 #N canvas 65 54 1301 714 mod 0;
 #X obj 3 3 inlet;
 #X obj 413 89 tabwrite \$0-beat-speed;
@@ -5232,9 +5313,9 @@ attack-threshold 100 25 0 10 -228856 -260097 -1 12478 0;
 #X connect 23 0 3 1;
 #X restore 721 262 pd bpm;
 #X obj 720 204 nbx 5 14 -1e+37 1e+37 0 0 \$0-BPM \$0-BPM empty 0 -8
-0 10 -262144 -1 -1 120 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 795 198 nbx 5 14 -1e+37 1e+37 0 0 \$0-repeat-length \$0-repeat-length
-empty 0 -8 0 10 -262144 -1 -1 16 256;
+empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj 876 274 s \$0-beat-pattern-store;
 #X msg 903 233 arrayviewlistnew;
 #X obj 1029 271 s \$0-beat-pattern;
@@ -5242,11 +5323,11 @@ empty 0 -8 0 10 -262144 -1 -1 16 256;
 #X obj 1146 271 s \$0-beat-pattern-omit;
 #X msg 1133 188 arrayviewlistnew;
 #X obj -53 -200 nbx 5 14 -1e+37 1e+37 0 0 \$0-beat-mod \$0-beat-mod
-empty 0 -8 0 10 -262144 -1 -1 16 256;
+empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj -52 -84 nbx 5 14 -1e+37 1e+37 0 0 \$0-quaver-mod \$0-quaver-mod
-empty 0 -8 0 10 -262144 -1 -1 16 256;
+empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj -51 44 nbx 5 14 -1e+37 1e+37 0 0 \$0-squaver-mod \$0-squaver-mod
-empty 0 -8 0 10 -262144 -1 -1 16 256;
+empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj 410 -220 nbx 5 14 -1e+37 1e+37 0 0 \$0-beat-speed-mod \$0-beat-speed-mod
 empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj 419 -116 nbx 5 14 -1e+37 1e+37 0 0 \$0-quaver-speed-mod \$0-quaver-speed-mod
@@ -5257,35 +5338,95 @@ empty 0 -8 0 10 -262144 -1 -1 0 256;
 #X obj 685 -37 r beat\$1-vari;
 #X floatatom 468 124 5 0 0 0 - - -;
 #X obj 468 146 s \$0-trigger-delay;
+#X floatatom 601 110 5 0 0 0 - - -;
+#X floatatom 666 115 5 0 0 0 - - -;
+#X floatatom 732 128 5 0 0 0 - - -;
+#X floatatom 793 131 5 0 0 0 - - -;
+#X floatatom 848 146 5 0 0 0 - - -;
+#X floatatom 895 142 5 0 0 0 - - -;
+#X msg 1022 56 0.5;
+#N canvas 941 266 450 300 patternincrement 0;
+#X obj 124 204 outlet;
+#X obj 71 66 r \$0-store-index;
+#X obj 56 100 f;
+#X obj 86 100 + 1;
+#X msg 56 8 1;
+#X msg 90 8 -1;
+#X obj 124 100 clip 0 8;
+#X obj 71 42 t b f;
+#X obj 225 34 inlet;
+#X obj 56 -45 r \$0-pttrfwd;
+#X obj 90 -22 r \$0-pttrbwd;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 1;
+#X connect 6 0 0 0;
+#X connect 7 0 2 0;
+#X connect 7 1 3 1;
+#X connect 8 0 2 1;
+#X connect 9 0 4 0;
+#X connect 10 0 5 0;
+#X restore 160 222 pd patternincrement;
+#X floatatom 359 271 5 0 0 0 - - -;
+#X floatatom 353 251 5 0 0 0 - - -;
+#X obj 608 335 s \$0-openPattern;
+#X obj 590 262 s \$0-openSeq;
+#X msg 568 165 ../seq/patternslice1;
+#X msg 553 185 ../seq/patternslice2;
+#X msg 589 205 ../seq/scene2;
+#X msg 598 226 ../seq/patternscene2;
+#X obj 500 336 s \$0-savePattern;
+#X obj 503 296 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 608 305 ../seq/pattern/Acid1;
 #X connect 4 0 3 0;
 #X connect 7 0 6 0;
 #X connect 9 0 5 0;
 #X connect 19 0 18 0;
-#X connect 20 0 26 0;
-#X connect 22 0 24 0;
-#X connect 23 0 25 0;
-#X connect 26 0 27 0;
-#X connect 26 1 21 0;
-#X connect 29 0 28 0;
-#X connect 31 0 30 0;
-#X connect 32 0 40 0;
-#X connect 33 0 40 1;
-#X connect 34 0 39 0;
-#X connect 35 0 39 1;
-#X connect 36 0 38 0;
-#X connect 37 0 38 1;
-#X connect 41 0 36 0;
-#X connect 42 0 34 0;
-#X connect 43 0 32 0;
-#X connect 44 0 35 0;
-#X connect 45 0 33 0;
-#X connect 46 0 30 0;
-#X connect 53 0 52 0;
-#X connect 55 0 54 0;
-#X connect 57 0 56 0;
-#X connect 64 0 47 0;
-#X connect 65 0 37 0;
-#X connect 66 0 67 0;
+#X connect 20 0 24 0;
+#X connect 20 0 70 0;
+#X connect 20 0 72 0;
+#X connect 22 0 23 0;
+#X connect 24 0 25 0;
+#X connect 24 1 21 0;
+#X connect 27 0 26 0;
+#X connect 28 0 36 0;
+#X connect 28 0 67 0;
+#X connect 29 0 36 1;
+#X connect 29 0 68 0;
+#X connect 30 0 35 0;
+#X connect 30 0 65 0;
+#X connect 31 0 35 1;
+#X connect 31 0 66 0;
+#X connect 32 0 34 0;
+#X connect 32 0 63 0;
+#X connect 33 0 34 1;
+#X connect 33 0 64 0;
+#X connect 37 0 32 0;
+#X connect 38 0 30 0;
+#X connect 39 0 28 0;
+#X connect 40 0 31 0;
+#X connect 41 0 29 0;
+#X connect 48 0 47 0;
+#X connect 50 0 49 0;
+#X connect 52 0 51 0;
+#X connect 59 0 42 0;
+#X connect 60 0 33 0;
+#X connect 61 0 62 0;
+#X connect 69 0 28 0;
+#X connect 69 0 30 0;
+#X connect 69 0 32 0;
+#X connect 70 0 20 0;
+#X connect 71 0 21 0;
+#X connect 75 0 74 0;
+#X connect 76 0 74 0;
+#X connect 77 0 74 0;
+#X connect 78 0 74 0;
+#X connect 80 0 79 0;
+#X connect 81 0 73 0;
 #X restore 385 201 pd \$0-pattern;
 #X obj 385 239 \$0;
 #X msg 385 258 \; pd-\$1-pattern vis 1;
