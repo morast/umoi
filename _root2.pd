@@ -805,7 +805,7 @@
 #X connect 90 0 89 2;
 #X coords 0 -1 1 1 1000 360 2 100 100;
 #X restore -967 286 pd mixer;
-#N canvas 65 97 1301 686 slicer 0;
+#N canvas 65 107 1301 686 slicer 0;
 #X obj 102 102 slicer 0;
 #X obj 101 283 throw~ slicer1-L;
 #X obj 228 295 throw~ slicer1-R;
@@ -855,7 +855,7 @@
 #N canvas 707 371 375 310 globalticks 0;
 #X obj 78 221 s globalticks;
 #N canvas 178 184 345 423 generate-ticks 0;
-#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 32 146 metro;
 #N canvas 982 160 208 259 milliseconds 0;
