@@ -1,0 +1,5 @@
+seff.wav
+seffin.wav
+poidl.wav
+lean.wav
+bake.wav
