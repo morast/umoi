@@ -1,4 +1,4 @@
-#N canvas 65 54 1301 714 10;
+#N canvas 117 82 1249 686 10;
 #X declare -lib zexy;
 #X declare -lib bsaylor;
 #X declare -lib zexy;
@@ -283,7 +283,7 @@
 #X obj 823 -60 catch~ wind-L;
 #X obj 833 -38 catch~ wind-R;
 #X obj 941 456 dac~ 1 2;
-#N canvas 697 82 650 686 record 1;
+#N canvas 703 102 650 686 record 0;
 #X obj 15 335 writesf~ 2;
 #X msg 210 95 bang;
 #X obj 207 143 date GTM;
@@ -1496,7 +1496,7 @@
 #X obj 309 67 r~ \$0-sliceJockey;
 #X obj 516 64 r~ \$0-sliceJockey;
 #X obj 722 64 r~ \$0-sliceJockey;
-#N canvas 697 97 650 686 slicerCTL 0;
+#N canvas 703 87 650 686 slicerCTL 0;
 #X obj 6 9 r midimix-note3;
 #X obj 256 9 r midimix-note9;
 #X obj 476 9 r midimix-note15;
@@ -1823,7 +1823,7 @@
 #X connect 139 0 106 0;
 #X connect 140 0 139 0;
 #X restore 506 -6 pd slicerCTL;
-#N canvas 647 285 450 300 lakker 0;
+#N canvas 653 275 450 300 lakker 0;
 #X obj 8 7 inlet;
 #X obj 8 209 outlet;
 #X obj 8 40 route read;
@@ -1835,7 +1835,7 @@
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
 #X restore 295 35 pd lakker;
-#N canvas 665 225 450 300 lakker 0;
+#N canvas 668 220 450 300 lakker 0;
 #X obj 8 7 inlet;
 #X obj 8 209 outlet;
 #X obj 8 40 route read;
@@ -1847,7 +1847,7 @@
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
 #X restore 437 45 pd lakker;
-#N canvas 665 225 450 300 lakker 0;
+#N canvas 668 220 450 300 lakker 0;
 #X obj 8 7 inlet;
 #X obj 8 209 outlet;
 #X obj 8 40 route read;
@@ -1859,7 +1859,7 @@
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
 #X restore 651 33 pd lakker;
-#N canvas 665 225 450 300 lakker 0;
+#N canvas 668 220 450 300 lakker 0;
 #X obj 8 7 inlet;
 #X obj 8 209 outlet;
 #X obj 8 40 route read;
@@ -2514,7 +2514,7 @@
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 shit;
+#X msg 14 178 frappes1_4;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -2563,7 +2563,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 shot;
+#X msg 14 178 beat1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -2599,7 +2599,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 shit;
+#X msg 14 178 rebond1_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -2635,7 +2635,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 trilllong_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -2671,7 +2671,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 trilllong2_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -2707,7 +2707,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 trilllong3_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -2743,7 +2743,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 trilllong3_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3410,7 +3410,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 musel;
+#X msg 14 178 frappes1_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3447,7 +3447,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 rebond1_2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3482,7 +3482,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 musel;
+#X msg 14 178 patternpousse1_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3518,7 +3518,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 dance1_2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3554,7 +3554,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNharmonSi1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3590,7 +3590,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNharmonLa1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3626,7 +3626,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNharmonSoldiese1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -3662,7 +3662,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNharmonfadiese1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4306,7 +4306,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 musel;
+#X msg 14 178 frappes1_2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4344,7 +4344,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 musel;
+#X msg 14 178 harmonicabass_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4380,7 +4380,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 musel;
+#X msg 14 178 TLNFadiesem1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4416,7 +4416,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNSim1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4452,7 +4452,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNFadiesem1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4488,7 +4488,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNDodiese7m1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4524,7 +4524,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNFadiesem1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -4560,7 +4560,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNFadiesem1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5203,7 +5203,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 shit;
+#X msg 14 178 frappes1_3;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5241,7 +5241,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 shot;
+#X msg 14 178 monteedesc1_1;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5277,7 +5277,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 musel;
+#X msg 14 178 verresdance;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5313,7 +5313,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNFadiesem2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5349,7 +5349,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNSim2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5385,7 +5385,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNFadiesem2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5421,7 +5421,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNDodiese7m2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -5457,7 +5457,7 @@ it when reopening the patch or changing the page;
 #X text 91 25 stores the last set pattern in a message box to recall
 it when reopening the patch or changing the page;
 #X obj -76 30 loadbang;
-#X msg 14 178 makeymake;
+#X msg 14 178 TLNFadiesem2;
 #X obj 14 98 spigot;
 #X obj -19 228 symbol;
 #X obj -19 256 unsymbol;
@@ -10497,7 +10497,7 @@ it when reopening the patch or changing the page;
 #X msg -197 141 \$1 1000;
 #X obj -258 184 *;
 #X obj -258 32 tabread envScale;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array envScale 100 float 3;
 #A 0 0 0.192858 0.264286 0.285715 0.285715 0.285715 0.285715 0.278572
 0.278572 0.278572 0.285715 0.285715 0.285715 0.285715 0.285715 0.278572
